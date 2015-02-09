@@ -6,7 +6,7 @@ public class Config {
 	public static String MainActivity="com.android.KnowingLife.ui.activity.WelcomeActivity";
 	//com.android.KnowingLife.ui.activity.WelcomeActivity
 	public static String usernammString="13758213294";
-	public static String passwordString="a112233sht";
+	public static String passwordString="a112233shb";
 	public static int timeout=10000;
 	/*public static String ProgramMatch="项目撮合";
 	public static String PrivateLawer="私人律师";
@@ -14,16 +14,22 @@ public class Config {
 	public static String FinancialServices="金融服务";
     public static String Businessgroup="商帮";
     */
+	/*
+	 * 幸福乡村主页
+	 */
 	public static String CulturalHall="文化礼堂";
 	public static String FarmHelp="农忙互助";
 	public static String Rich_Experience="致富经";
 	public static String beautifulScenes="魅力风景";
     public static String OneVillageOneProdect="一村一品";
-    public static String TravelRecommendation="一村一品";
+    public static String TravelRecommendation="乡游推荐";
+    public static String PeopleFinance="亲民金融";
     public static String ContactUs="联系我们";
 
-    
-    public static String Discovery="发现";
+    /*
+     * 主要模块
+     */
+    //public static String Discovery="发现";
     public static String xfxchome="幸福乡村";
     public static String More="更多";
     public static String Dynamic="动态";
@@ -31,7 +37,9 @@ public class Config {
     public static String DigitalVillage="数字村谱";
     
 	
-
+    /*
+     * 调试用文字
+     */
     public static String TAG="shb_log";
     public static String getfailedmessage="获取信息失败";
     public static String getcrashmessage="应用崩溃";
@@ -47,7 +55,7 @@ public class Config {
     
     
     
-    
+    /*
 	public static int Entertainment = 8;
 	public static int Funny = 9;
 	public static int Game = 10;
@@ -65,4 +73,5 @@ public class Config {
     public static int CaptureMode = 2; 
     public static int ResolutionMode = 3;
     public static int SourceMode = 4;
+    */
 }
