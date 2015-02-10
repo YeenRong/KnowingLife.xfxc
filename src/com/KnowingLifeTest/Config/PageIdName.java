@@ -294,7 +294,85 @@ public class PageIdName {
     public static final String btCancel_str="取消";
     public static final String btOK_id="btOK";
     public static final String btOK_str="确定";
-   // public static final String 
-   // public static final String 
+    /*
+     * 更多--头像(ImageView)，昵称(TextView)、
+     */
+    public static final String PersonHeadicon="main_fragement_app_center_roundimage_user_image";
+    public static final String Personusername="main_fragement_app_center_tv_user_name";
+    /*
+     * 个人中心--返回按钮(ImageView),我的头像、用户名、绑定手机、姓名、性别、区域、单位、我的等级、我的金币、今日任务、修改密码、退出登陆
+     */
+    public static final String PersonInfo_Back="main_fragement_app_user_center_back";
+    public static final String PersonInfo_Title_str="个人中心";
+    public static final String PersonInfo_Headicon_layout="user_center_my_photo";
+    public static final String PersonInfo_Headicon="user_center_photo";		
+    public static final String PersonInfo_Username_layout="user_center_ll_user_name";	
+    public static final String PersonInfo_Username="user_center_tv_user_name";	
+    public static final String PersonInfo_FPhone_layout="user_center_ll_bind_phone_number";	
+    public static final String PersonInfo_FPhone="user_center_tv_bind_phone_number";	
+    public static final String PersonInfo_FName_layout="user_center_ll_true_name";	
+    public static final String PersonInfo_FName="user_center_tv_true_name";	
+    public static final String PersonInfo_FSex_layout="user_center_ll_gender";  
+    public static final String PersonInfo_FSex="user_center_tv_gender";  
+    public static final String PersonInfo_FRegion_layout="user_center_ll_area";    
+    public static final String PersonInfo_FRegion="user_center_tv_area";   
+    public static final String PersonInfo_FCompany_layout="user_center_ll_company";   
+    public static final String PersonInfo_FCompany="user_center_tv_company";  
+    public static final String PersonInfo_MyLevel_layout="user_center_ll_my_grade";  
+    public static final String PersonInfo_MyLevel="main_fragment_app_center_my_grade";	
+    public static final String PersonInfo_MyCoin_layout="user_center_coin";	
+    public static final String PersonInfo_MyCoin="main_fragment_app_center_my_coin";	
+    public static final String PersonInfo_MyScore_layout="user_center_ll_my_integral";	
+    public static final String PersonInfo_MyScore="main_fragment_app_center_my_integral";	
+    public static final String PersonInfo_TodayTask_layout="user_center_ll_task";	
+    //public static final String PersonInfo_TodayTask="";	
+    //public static final String PersonInfo_ChangePasswd_layout="";	
+    public static final String PersonInfo_ChangePasswd="tv_modifypassword";	
+    public static final String PersonInfo_LoginOut="main_fragment_app_center_log_out";
+    /*
+     * 个人中心--名称及修改项
+     */
+    public static final String PersonInfo_Headicon_str="我的头像";
+    public static final String PersonInfo_Username_str="我的用户名";	
+    public static final String PersonInfo_FPhone_str="绑定手机";	
+    public static final String PersonInfo_FName_str="姓名";	
+    public static final String PersonInfo_FSex_str="性别";  
+    public static final String PersonInfo_FRegion_str="区域";   
+    public static final String PersonInfo_FCompany_str="单位";  
+    public static final String PersonInfo_MyLevel_str="我的等级";	
+    public static final String PersonInfo_MyCoin_str="我的金币";	
+    public static final String PersonInfo_MyScore_str="我的积分";	
+    public static final String PersonInfo_TodayTask="今日任务";	
+    public static final String PersonInfo_ChangePasswd_str="修改密码";	
+    public static final String PersonInfo_LoginOut_str="退出登陆";
+    
+    public static final String ChoosePhote_way_Photo="拍照";
+    public static final String ChoosePhote_way_PhotoAlbum="从相册中获取";
+    public static final String ChoosePhote_way_Cachel="取消";
+    
+    /*
+     * 更多页面--主页
+     */
+    public static final String JoinSiteCheck_ImageView="widget_word_image_button_iv_image";
+    public static final String JoinSiteCheck_id="widget_word_image_button_tv_word";
+    public static final String JoinSiteCheck_str="入站审核";
+    public static final String MyMedia="我的智媒体";   
+    public static final String ContactFav="收藏联系人";
+    public static final String ContactCover="通讯录备份";
+    public static final String InterstIcon="兴趣标签";  
+    public static final String PaiHangBang="排行榜";
+    public static final String Share="分享";
+    public static final String More="更多";
+    public static final String Page_Title="智慧乡村";
+    public static final String Setting="main_fragement_app_center_btn_title_bar_setting";
+    
+    /*
+     * 我的消息，特别感谢
+     */
+    public static final String MyMessage_layout="main_fragement_app_center_rl_my_message";
+    public static final String MyMessage_icon="main_fragement_app_center_img_my_message_icon";
+    public static final String MyMessage_Name="main_fragement_app_center_tv_my_messag";
+    public static final String MyMessage_count="main_fragment_app_center_tv_my_message_count";
+    public static final String MyMessage_title="main_fragement_app_centert_tv_my_message_last";
 
 }

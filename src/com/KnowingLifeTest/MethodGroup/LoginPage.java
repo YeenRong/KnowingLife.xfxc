@@ -139,7 +139,12 @@ public class LoginPage extends Assert{
 	 */
 	public void LoginOut() throws Exception{
 		cm.clickonMore();
-		
+		op.clickById(PageIdName.PersonInfo_LoginOut);
+		assertTrue("弹出退出提示框失败", solo.waitForDialogToOpen(Config.less_timeout));
+		assertTrue("提示语出错", op.ReturnName(PageIdName.Dialog_content).contains("确定要退出"));
+		solo.sleep(Config.less_timeout);
+		op.clickById(PageIdName.btOK_id);
+		assertTrue("退出登陆失败",solo.waitForText("登陆", 1, 2000, false, true));
 	}
 	
 	/**
