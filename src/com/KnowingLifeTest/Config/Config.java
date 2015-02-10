@@ -8,6 +8,8 @@ public class Config {
 	public static String usernammString="13758213294";
 	public static String passwordString="a112233shb";
 	public static int timeout=10000;
+	public static int less_timeout=1000;
+	public static int long_timeout=1000;
 	/*public static String ProgramMatch="项目撮合";
 	public static String PrivateLawer="私人律师";
 	public static String SupplyandNeedinfo="供求信息";
@@ -40,11 +42,19 @@ public class Config {
     /*
      * 调试用文字
      */
+    public static String crash_handler_toast_info="很抱歉，程序发生错误，即将关闭！\n请稍后发送报告给我们来解决此问题";
+    
+
+    /**
+     * 调试用日志
+     */
     public static String TAG="shb_log";
+    public static String Error_TAG="result_error";
     public static String getfailedmessage="获取信息失败";
     public static String getcrashmessage="应用崩溃";
     public static String getsuccessmessage="运行正常";
     public static String Logfilesavapath="/sdcard/KnowingLife/Log_";
+    
 
     
     

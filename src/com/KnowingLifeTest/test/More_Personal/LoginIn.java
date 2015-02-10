@@ -5,6 +5,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import com.KnowingLifeTest.Config.Config;
 import com.KnowingLifeTest.Config.PageIdName;
 import com.KnowingLifeTest.MethodGroup.CommonMethod;
+import com.KnowingLifeTest.MethodGroup.LoginPage;
 import com.KnowingLifeTest.MethodGroup.MethodGroup;
 import com.KnowingLifeTest.MethodGroup.OpenMethod;
 import com.robotium.solo.Solo;
@@ -22,6 +23,7 @@ public class LoginIn extends ActivityInstrumentationTestCase2 {
 	MethodGroup op=null;
 	CommonMethod cm=null;
 	OpenMethod om=null;
+	LoginPage lPage=null;
 	static{
 		try {
 			launcherActivityClass = Class.
@@ -41,6 +43,7 @@ public class LoginIn extends ActivityInstrumentationTestCase2 {
 		op=new MethodGroup(solo);
 		cm=new CommonMethod(solo);
 		om=new OpenMethod(solo);
+		lPage=new LoginPage(solo);
 	}	
 	
 	public void tearDown() throws Exception {
@@ -54,16 +57,16 @@ public class LoginIn extends ActivityInstrumentationTestCase2 {
 	//检查引导页面是否关闭
 	public void testHelpPageIsClosed() throws Exception{
 		
-		op.CheckDialogClosedSuccess();
+		lPage.CheckDialogClosedSuccess();
 	}
 	//检查随便看看，注册新用户，忘记密码文字是否存在
 	public void testBTextIsExist() throws Exception{
-        op.CheckPageIsLoginPage();
+        lPage.CheckPageIsLoginPage();
         om.returnXY(PageIdName.LoginInButton_id);
 	}
 	//检查登陆是否成功
 	public void testLoginInSuccess() throws Exception{
-		op.CheckLoginInSuccess(Config.usernammString, Config.passwordString);
+		lPage.CheckLoginInSuccess(Config.usernammString, Config.passwordString);
 	}
 	public void testXChangeModule() throws Exception{
 		solo.sleep(2000);

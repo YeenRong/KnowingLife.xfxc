@@ -241,6 +241,60 @@ public class PageIdName {
 	//评论列表--projectdetail_tool_bar_go_comment－－android.widget.ImageView－－index--2
 	//关注－－d/projectdetail_tool_bar_mark－－android.widget.ImageView－－index--3
 	//更多菜单--/projectdetail_tool_bar_more－－android.widget.ImageView－－index--4
-	
+	/**
+	 * 数字村谱主页的id及文字
+	 */
+	/*
+	 * 数字村谱模块标题
+	 */
+	public static final String Digital_Village_id="site_title";
+    public static final String Digital_Village_STRING="数字村谱";
+    public String bangdingVillage_id="xfxc_addfsecod";
+    public String bangdingVillage_string="绑定村庄";
+    public String myvillage_id="tv_title";
+    public String myvillage_str="我的村谱";
+    public String PU="site_main_list_item_image_iv";
+    /*
+     * 组织查找页面
+     */
+    public static final String CheckSeniorSearch_id="site_finding_expand_ll";
+    public static final String CheckSeniorSearch_str="查看高级搜索";
+    public static final String RegionChoose="site_finding_area_ll";
+    //区域--index--2，行业--index--3
+    //site_finding_trade_ll
+    public static final String Textview_5="温馨提示：";
+    public static final String Textview_6="没有找到您想要的组织？可点击“查看高级搜索”按区域或行业来查找。";
+    public static final String Textview_0="你还可以创建你自己的通讯录，";
+    public static final String AddSite_ID="site_finding_site_create_tv";
+    public static final String AddSite_str="点击申请创建";
+    /*
+     * 搜索结果页面
+     */
+    public static final String SearchIsNull_id="tv_nodata_or_err";
+    public static final String SearchIsNull_str="没有相应的搜索结果，请更换搜索条件再试试。";
+    /*
+     * 加入组织验证页面
+     */
+    public static final String Dialog_content="申请提交成功！返回组织列表。";
+    public static final String BackFresh_id="btOK";
+    public static final String BackFresh_String="返回刷新";
+    
+    /**
+     * 更多页面的id及文字
+     */
+    public static final String LoginIn_id="main_fragement_app_center_roundimage_user_image";    
+    public static final String LoginIn_str="立即登陆";
+    /*
+     * 随便看看，登陆保护
+     * 弹出提示框--登陆后才能使用该功能,请登陆--取消、确定
+     */
+    public static final String LoginOnDialog_content_id="content";
+    public static final String LoginOnDialog_content="登录后才能使用该功能，请登陆";
+    public static final String btCancel_id="btCancel";
+    public static final String btCancel_str="取消";
+    public static final String btOK_id="btOK";
+    public static final String btOK_str="确定";
+   // public static final String 
+   // public static final String 
 
 }
