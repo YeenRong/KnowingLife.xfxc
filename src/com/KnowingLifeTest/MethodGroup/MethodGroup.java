@@ -147,6 +147,9 @@ public class MethodGroup extends Assert {
 		}
 	}
 	/**
+	 * 等待页面中的
+	 */
+	/**
 	 * 打印出调试日志
 	 */
 	public void LogPrintDebug(String str){
@@ -209,6 +212,9 @@ public class MethodGroup extends Assert {
 			solo.sleep(2000);
 			takeScreenshot();
 	}
+	/**
+	 * 查找文字，至少有2个字
+	 */
 
 	
 	/**
@@ -262,6 +268,69 @@ public class MethodGroup extends Assert {
 		
 		return id1;
 	}
+	/**
+	 * 找到控件id，返回view
+	 */
+	public View ReturnViewFromID(String id){
+		Activity act1=solo.getCurrentActivity();
+		int id1 = act1.getResources().getIdentifier(id, "id",
+				solo.getCurrentActivity().getPackageName());
+		View view=act1.findViewById(id1);
+		return view;
+		
+	}
+	/**
+	 * 找到第N个view，然后返回子View的名称
+	 */
+	public String ReturnNameFromView(View view){
+		TextView TX=(TextView)view;
+		String tx1 = TX.getText().toString();
+		return tx1;
+	}
+	/**
+	 * 此方法有两个参数，第一个是要查找的字符串数组，第二个是要查找的字符或字符串 
+	 * @param 
+	 */ 
+	public boolean isHave(String[] strs,String s){ 		
+		for(int i=0;i<strs.length;i++){ 
+			if(strs[i].indexOf(s)!=-1){//循环查找字符串数组中的每个字符串中是否包含所有查找的内容 
+				return true;//查找到了就返回真，不在继续查询 
+				} 
+			} 
+		return false;//没找到返回false 
+	}
+	/**
+	 * 获取当前activity 查找到控件id 将id变为文本，输出字符串，打印出log--字符串
+	 */		
+	public void ResourceIdToName(String id) {
+			try {
+				Activity act = solo.getCurrentActivity();
+				int id1 = act.getResources().getIdentifier(id, "id",
+						solo.getCurrentActivity().getPackageName());
+				TextView TX = (TextView) act.findViewById(id1);
+				String tx1 = TX.getText().toString();
+				Log.d(TAG, tx1);
+				// return true;
+			} catch (Exception e) {
+				Log.e(TAG, "Exception accur at ClickById");
+			}
+		}
+	/**
+	 * 获取当前activity 查找到控件id 将id变为文本，输出字符串，返回字符串
+	 */
+	public String ReturnName(String id) {		
+		try {
+			Activity act = solo.getCurrentActivity();
+			int id1 = act.getResources().getIdentifier(id, "id",
+			solo.getCurrentActivity().getPackageName());
+			TextView TX = (TextView) act.findViewById(id1);
+			String tx = TX.getText().toString();
+			return tx;
+		    } catch (Exception e) {
+		    	Log.e(TAG, "Exception accur at ClickById");
+			    return null;
+			}
+		}
 	/**
 	 * 首先判断id对应控件存在，只有控件存在才会做点击操作
 	 */
@@ -336,7 +405,7 @@ public class MethodGroup extends Assert {
 	/**
 	 * 获取某个view下带ID的子view
 	 */
-		public View getChildView(View view,int id,String viewClass){
+	public View getChildView(View view,int id,String viewClass){
 			View view1=null;
 			ArrayList<View> viewList = new ArrayList<View>();
 			if(view != null) {				
@@ -359,47 +428,15 @@ public class MethodGroup extends Assert {
 			}
 			return view1;
 		}
-	  
-		
-		
-		/**
-		 * 获取当前activity 查找到控件id 将id变为文本，输出字符串，打印出log--字符串
-		 */		
-		public void ResourceIdToName(String id) {
-
-			try {
-				Activity act = solo.getCurrentActivity();
-				int id1 = act.getResources().getIdentifier(id, "id",
-						solo.getCurrentActivity().getPackageName());
-				TextView TX = (TextView) act.findViewById(id1);
-				String tx1 = TX.getText().toString();
-				Log.d(TAG, tx1);
-				// return true;
-			} catch (Exception e) {
-				Log.e(TAG, "Exception accur at ClickById");
-			}
-		}
-
-		public String ReturnName(String id) {
-			/*
-			 * 获取当前activity 查找到控件id 将id变为文本，输出字符串，返回字符串
-			 */
-			try {
-				Activity act = solo.getCurrentActivity();
-				int id1 = act.getResources().getIdentifier(id, "id",
-						solo.getCurrentActivity().getPackageName());
-				TextView TX = (TextView) act.findViewById(id1);
-				String tx = TX.getText().toString();
-				return tx;
-			} catch (Exception e) {
-				Log.e(TAG, "Exception accur at ClickById");
-				return null;
-			}
-		}
+	  		
+	
+	/**
+	 * 截图
+	 */
 	public void takeScreenshot(){
 		solo.takeScreenshot();
 	}
-	/*
+	/**
 	 * 带模块名称的截图
 	 */
 	public void takeScreenshot(String args){
@@ -410,6 +447,11 @@ public class MethodGroup extends Assert {
 		name = ReturnName(id).substring(0, ((ReturnName(id).length())));
 		//solo.takeScreenshot(name);
 	}
+	/**
+	 * 将字符串型的字符转化成整数的数值
+	 * @param id
+	 * @return
+	 */
 	public Integer StringToInt(String id) {
 		solo.sleep(2000);
 		TextView tvcount = (TextView) solo.getView(id, 0);
@@ -441,8 +483,10 @@ public class MethodGroup extends Assert {
 		num = Integer.parseInt(str1);
 		return num;
 	}*/
+	/**
+	 * 截取某个特殊字符前的字符串，比如"."
+	 */
 	public String clipstring(String channel_name, String x) {
-		// 截取某个特殊字符前的字符串，比如"."
 		String s = channel_name;
 		Log.d(TAG, "channel_name" + s);
 		if (s == null || s.equals("")) {

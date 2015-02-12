@@ -1,25 +1,17 @@
 package com.KnowingLifeTest.MethodGroup;
 
-import java.util.ArrayList;
 
-import android.R.integer;
 import android.app.Activity;
 import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TabHost;
-import android.widget.TextView;
+
 
 import com.KnowingLifeTest.Config.Config;
+import com.KnowingLifeTest.Config.CommonPageIdName;
 import com.KnowingLifeTest.Config.PageIdName;
 import com.robotium.solo.Solo;
-import com.robotium.solo.Timeout;
 import com.squareup.spoon.Spoon;
 
 import junit.framework.Assert;
-import junit.framework.TestCase;
 public class LoginPage extends Assert{
 	
 	private Solo solo;
@@ -46,6 +38,7 @@ public class LoginPage extends Assert{
 		op.RightScrollToLeft();
 		solo.sleep(2000);
 		op.takeScreenshot("help_3");
+		assertTrue("没有找到开始体验按钮", op.checkViewExitsInScreen("btn_start_use")>0);
 		op.clickById("btn_start_use");
 		solo.sleep(2000);
 	}
@@ -57,6 +50,7 @@ public class LoginPage extends Assert{
 		solo.sleep(2000);
 		Activity act = solo.getCurrentActivity();// 获取当前Activity
 		Spoon.screenshot(act, "11");
+		assertTrue("当前页面不是登陆页面", op.ReturnName(CommonPageIdName.HaveALook_id).contains("随便"));
 		solo.clickOnEditText(0);
 		solo.sleep(1000);
 		solo.enterText( 0, s1);
@@ -82,19 +76,19 @@ public class LoginPage extends Assert{
 			//ClosedDalog();
 		}else if (solo.searchText(Config.DigitalVillage, 1, false, true)) {
 		//	
-		}//else if (solo.searchButton(PageIdName.LoginInButton_string, 1, true)) {
-		else if (op.checkViewExitsInScreen(PageIdName.LoginInButton_id)>0) {
+		}//else if (solo.searchButton(CommonPageIdName.LoginInButton_string, 1, true)) {
+		else if (op.checkViewExitsInScreen(CommonPageIdName.LoginInButton_id)>0) {
 			//Log.d(Config.TAG, "zzzz");
 			//ClosedDalog();
 			solo.sleep(2000);
 			//
-			assertTrue(PageIdName.Forgetpasswd_string+PageIdName.GetFaild,(op.checkViewExitsInScreen(PageIdName.Forgetpasswd_id)>0));
-			assertEquals(PageIdName.Forgetpasswd_string,op.ReturnName(PageIdName.Forgetpasswd_id));
+			assertTrue(CommonPageIdName.Forgetpasswd_string+CommonPageIdName.GetFaild,(op.checkViewExitsInScreen(CommonPageIdName.Forgetpasswd_id)>0));
+			assertEquals(CommonPageIdName.Forgetpasswd_string,op.ReturnName(CommonPageIdName.Forgetpasswd_id));
 			Log.d(Config.TAG, Config.getfailedmessage);
-			assertTrue(PageIdName.HaveALook_string+PageIdName.GetFaild, op.checkViewExitsInScreen(PageIdName.HaveALook_id)>0);
-			assertEquals(PageIdName.HaveALook_string, op.ReturnName(PageIdName.HaveALook_id));
-			assertTrue(PageIdName.NewUserRegister_string+PageIdName.GetFaild, op.checkViewExitsInScreen(PageIdName.NewUserRegister_id)>0);
-			assertEquals(PageIdName.NewUserRegister_string, op.ReturnName(PageIdName.NewUserRegister_id));
+			assertTrue(CommonPageIdName.HaveALook_string+CommonPageIdName.GetFaild, op.checkViewExitsInScreen(CommonPageIdName.HaveALook_id)>0);
+			assertEquals(CommonPageIdName.HaveALook_string, op.ReturnName(CommonPageIdName.HaveALook_id));
+			assertTrue(CommonPageIdName.NewUserRegister_string+CommonPageIdName.GetFaild, op.checkViewExitsInScreen(CommonPageIdName.NewUserRegister_id)>0);
+			assertEquals(CommonPageIdName.NewUserRegister_string, op.ReturnName(CommonPageIdName.NewUserRegister_id));
 			Log.d(Config.TAG, "zzzz");
 		}
 	}
@@ -114,7 +108,7 @@ public class LoginPage extends Assert{
 			ClosedDalog();
 			solo.sleep(2000);
 			//Log.d(Config.TAG, "zzzz2");
-			assertTrue("当前页面不是登陆页面", op.checkViewExitsInScreen(PageIdName.LoginInButton_id)>0);	
+			assertTrue("当前页面不是登陆页面", op.checkViewExitsInScreen(CommonPageIdName.LoginInButton_id)>0);	
 			Log.d(Config.TAG, "当前页面不是登陆页面");
 		}
 	}
@@ -126,7 +120,7 @@ public class LoginPage extends Assert{
 			//ClosedDalog();
 			
 		}//else if (solo.searchButton("登陆", 1, true)) {
-		else if (op.checkViewExitsInScreen(PageIdName.LoginInButton_id)>0) {
+		else if (op.checkViewExitsInScreen(CommonPageIdName.LoginInButton_id)>0) {
 			LoginIn(s1, s2);
 			op.waitForPageFlush();
 			//Log.d(Config.TAG, "zzzz1");
@@ -139,11 +133,12 @@ public class LoginPage extends Assert{
 	 */
 	public void LoginOut() throws Exception{
 		cm.clickonMore();
-		op.clickById(PageIdName.PersonInfo_LoginOut);
+		op.clickById(CommonPageIdName.PersonInfo_LoginOut);
 		assertTrue("弹出退出提示框失败", solo.waitForDialogToOpen(Config.less_timeout));
-		assertTrue("提示语出错", op.ReturnName(PageIdName.Dialog_content).contains("确定要退出"));
+		assertTrue("提示语出错", op.ReturnName(CommonPageIdName.Dialog_content).contains("确定要退出"));
 		solo.sleep(Config.less_timeout);
-		op.clickById(PageIdName.btOK_id);
+		op.clickById(CommonPageIdName.btOK_id);
+		solo.sleep(Config.timeout);
 		assertTrue("退出登陆失败",solo.waitForText("登陆", 1, 2000, false, true));
 	}
 	
@@ -152,9 +147,25 @@ public class LoginPage extends Assert{
 	 */
 	public void checkLoginOn() throws Exception{
 		//CheckstayLoginPage();
-		//LoginIn("13513141314", "369qaz");
-		
-			
+		//LoginIn("13513141314", "369qaz");			
+	}
+	/**
+	 * 进入更多页面，点击头像，进入个人中心(scrollView），点击退出登陆，点击确定，退出登陆成功
+	 */
+	public void CheckLoginOut() throws Exception{
+		cm.clickonMore();
+		solo.sleep(Config.less_timeout);
+		op.clickById(CommonPageIdName.PersonHeadicon);
+		assertTrue("进入个人中心失败",CommonPageIdName.PersonInfo_Title_str.contains("个人"));
+		solo.sleep(Config.less_timeout);
+		solo.scrollToBottom();
+		//assertTrue("没有找到退出登陆按钮", solo.searchText(op.ReturnName(CommonPageIdName.PersonInfo_LoginOut), 2, true, true));
+		solo.sleep(Config.less_timeout);
+		op.clickById(CommonPageIdName.PersonInfo_LoginOut);
+		solo.sleep(Config.less_timeout);
+		//assertTrue("弹出退出提示框",solo.waitForDialogToOpen()&&op.ReturnName(CommonPageIdName.Dialog_LoginOut_content_id).contains("要退出"));				
+		op.clickById(CommonPageIdName.btOK_id);
+		assertTrue("返回到登陆页面成功", solo.searchText(CommonPageIdName.HaveALook_string, 3, false, true));
 	}
 	
 }

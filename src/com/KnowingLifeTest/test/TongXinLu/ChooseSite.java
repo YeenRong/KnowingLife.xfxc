@@ -4,18 +4,9 @@ import com.KnowingLifeTest.Config.Config;
 import com.KnowingLifeTest.MethodGroup.CommonMethod;
 import com.KnowingLifeTest.MethodGroup.MethodGroup;
 import com.robotium.solo.Solo;
-import android.app.Activity;
-import android.graphics.Path.Op;
-import android.test.ActivityInstrumentationTestCase2;
-import android.util.Log;
-import android.view.View;
 
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TabHost;
-import android.widget.TabWidget;
-import android.widget.TextView;
+import android.test.ActivityInstrumentationTestCase2;
+
 public class ChooseSite extends ActivityInstrumentationTestCase2 {
 	private Solo solo;
 	//要测试的apk的包名

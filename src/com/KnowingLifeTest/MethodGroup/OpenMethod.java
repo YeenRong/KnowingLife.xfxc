@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TabWidget;
 //import android.view.View.AttachInfo;
 import com.KnowingLifeTest.Config.Config;
+import com.KnowingLifeTest.Config.PageIdName;
 import com.robotium.solo.Solo;
 import junit.framework.Assert;
 /**
@@ -111,6 +112,16 @@ public class OpenMethod extends Assert{
 		View view=act.findViewById(id2);
 		return view;
 	}
+	/**
+	 * 获取当前各模块的坐标点
+	 */
+	public void TabHostCoordinates() throws Exception{
+		op.takeScreenshot();
+		op.waitForPageFlush(PageIdName.SHB_HOME_Title);
+		for(int i=0;i<5;i++){
+		getClickCoordinates(solo.getView("tabText", i));
+		}
+	}
 
 	/**
 	* 获取View点击的中间位置坐标
@@ -144,6 +155,9 @@ public class OpenMethod extends Assert{
 
 	return xyToClick;	
 	}
+	/**
+	 * 通过控件的id，找到对应的view，然后找到View的中间点的坐标
+	 */
 	public void returnXY(String id){
 		String id1=id;
 		Activity act=solo.getCurrentActivity();
@@ -263,6 +277,7 @@ public class OpenMethod extends Assert{
             }
             return tabList;
         }
+        
         /**
          * This method returns a tab with a certain index.
          * 

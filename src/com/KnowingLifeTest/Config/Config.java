@@ -5,7 +5,7 @@ public class Config {
 	public static String PackageName="com.android.KnowingLife.xfxc";
 	public static String MainActivity="com.android.KnowingLife.ui.activity.WelcomeActivity";
 	//com.android.KnowingLife.ui.activity.WelcomeActivity
-	public static String usernammString="13758213294";
+	public static String usernammString="13067905358" ;
 	public static String passwordString="a112233shb";
 	public static int timeout=10000;
 	public static int less_timeout=1000;
@@ -58,9 +58,16 @@ public class Config {
 
     
     
+    /**
+     * 站点信息
+     */
+    public static String site_name="文祥";
+    public static String site_desc="我们是来打酱油，";
+    public static String site_mobile="13067905358";
+    public static String site_contact_name="王宇";
     
-    
-    
+    public static String[] Createsiteinfo={"必填","未选择(可选)","未填写","","","",""};
+  //  public static String site_
     
     
     
