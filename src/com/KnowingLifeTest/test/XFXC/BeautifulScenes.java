@@ -18,7 +18,7 @@ import com.robotium.solo.Solo;
 
 import junit.framework.TestCase;
 
-public class ProgramMatch extends ActivityInstrumentationTestCase2 {
+public class BeautifulScenes extends ActivityInstrumentationTestCase2 {
 	private Solo solo;
 	//要测试的apk的包名
 	private static final String TARGET_PACKAGE_ID=Config.PackageName;
@@ -38,7 +38,7 @@ public class ProgramMatch extends ActivityInstrumentationTestCase2 {
 	}
 	
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public ProgramMatch() {
+	public BeautifulScenes() {
 		super(TARGET_PACKAGE_ID,launcherActivityClass);
 	}
 	protected void setUp() throws Exception {	

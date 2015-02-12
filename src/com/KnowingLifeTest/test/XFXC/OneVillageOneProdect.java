@@ -5,7 +5,8 @@ import android.test.ActivityInstrumentationTestCase2;
 import com.KnowingLifeTest.Config.Config;
 import com.KnowingLifeTest.MethodGroup.MethodGroup;
 import com.robotium.solo.Solo;
-public class PrivateLawer extends ActivityInstrumentationTestCase2 {
+
+public class OneVillageOneProdect extends ActivityInstrumentationTestCase2 {
 	private Solo solo;
 	//要测试的apk的包名
 	private static final String TARGET_PACKAGE_ID=Config.PackageName;
@@ -22,8 +23,9 @@ public class PrivateLawer extends ActivityInstrumentationTestCase2 {
 		}
 	}
 	
+	
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public PrivateLawer() {
+	public OneVillageOneProdect() {
 		super(TARGET_PACKAGE_ID,launcherActivityClass);
 	}
 	protected void setUp() throws Exception {	
@@ -36,4 +38,5 @@ public class PrivateLawer extends ActivityInstrumentationTestCase2 {
 		solo.finishOpenedActivities();			
 		super.tearDown();
 	}
+	
 }

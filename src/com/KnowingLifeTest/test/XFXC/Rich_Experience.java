@@ -5,7 +5,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import com.KnowingLifeTest.Config.Config;
 import com.KnowingLifeTest.MethodGroup.MethodGroup;
 import com.robotium.solo.Solo;
-public class FinancialServices extends ActivityInstrumentationTestCase2 {
+public class Rich_Experience extends ActivityInstrumentationTestCase2 {
 	private Solo solo;
 	//要测试的apk的包名
 	private static final String TARGET_PACKAGE_ID=Config.PackageName;
@@ -23,7 +23,7 @@ public class FinancialServices extends ActivityInstrumentationTestCase2 {
 	}
 	
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public FinancialServices() {
+	public Rich_Experience() {
 		super(TARGET_PACKAGE_ID,launcherActivityClass);
 	}
 	protected void setUp() throws Exception {	
