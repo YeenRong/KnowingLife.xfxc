@@ -37,6 +37,11 @@ public class Config {
     public static String Dynamic="动态";
     public static String Chilean_media="智媒体";
     public static String DigitalVillage="数字村谱";
+    /**
+     * contacts，不同的产品线不一样,用于随便看看
+     */
+    public static String Contacts="数字村谱";
+    public static String HomePage="幸福乡村";
     
 	
     /*

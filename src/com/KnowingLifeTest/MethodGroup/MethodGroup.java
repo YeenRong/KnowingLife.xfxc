@@ -250,6 +250,7 @@ public class MethodGroup extends Assert {
 	 * 将textview转换成string
 	 */
 	public String TextViewToString(String id){
+		assertTrue("页面无该id",checkViewExitsInScreen(id)>0);
 		Activity act1=solo.getCurrentActivity();
 		int id1 = act1.getResources().getIdentifier(id, "id",
 				solo.getCurrentActivity().getPackageName());
@@ -261,6 +262,7 @@ public class MethodGroup extends Assert {
 	 * 将字符串的id变为int类型的id，用于findviewbyid
 	 */
 	public int ReturnId(String id){
+		assertTrue("页面无该id",checkViewExitsInScreen(id)>0);
 		Activity act1=solo.getCurrentActivity();
 
 		int id1 = act1.getResources().getIdentifier(id, "id",
@@ -272,6 +274,7 @@ public class MethodGroup extends Assert {
 	 * 找到控件id，返回view
 	 */
 	public View ReturnViewFromID(String id){
+		assertTrue("页面无该id",checkViewExitsInScreen(id)>0);
 		Activity act1=solo.getCurrentActivity();
 		int id1 = act1.getResources().getIdentifier(id, "id",
 				solo.getCurrentActivity().getPackageName());
@@ -282,7 +285,7 @@ public class MethodGroup extends Assert {
 	/**
 	 * 找到第N个view，然后返回子View的名称
 	 */
-	public String ReturnNameFromView(View view){
+	public String ReturnNameFromView(View view){		
 		TextView TX=(TextView)view;
 		String tx1 = TX.getText().toString();
 		return tx1;

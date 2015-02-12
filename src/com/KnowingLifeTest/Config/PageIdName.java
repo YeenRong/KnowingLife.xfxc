@@ -225,20 +225,7 @@ public class PageIdName {
 	
 	
 	
-	/***
-	 * 数字村谱主页的id及文字
-	 */
-	/*
-	 * 数字村谱模块标题
-	 */
-	public static final String Digital_Village_id="site_title";
-    public static final String Digital_Village_STRING="数字村谱";
-    public String bangdingVillage_id="xfxc_addfsecod";
-    public String bangdingVillage_string="绑定村庄";
-    public String myvillage_id="tv_title";
-    public String myvillage_str="我的村谱";
-    public String PU="site_main_list_item_image_iv";
-  
+
  
 }
 

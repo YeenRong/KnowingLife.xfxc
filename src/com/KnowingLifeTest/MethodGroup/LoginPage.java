@@ -1,6 +1,7 @@
 package com.KnowingLifeTest.MethodGroup;
 
 
+import android.R.integer;
 import android.app.Activity;
 import android.util.Log;
 
@@ -141,6 +142,29 @@ public class LoginPage extends Assert{
 		solo.sleep(Config.timeout);
 		assertTrue("退出登陆失败",solo.waitForText("登陆", 1, 2000, false, true));
 	}
+
+	/*
+	 * 这个方法是错误的
+	 */
+	public void CheckLoginInProtect_ERROR() throws Exception{
+		assertTrue("提示框弹出失败", solo.waitForDialogToOpen(Config.less_timeout));
+		solo.sleep(Config.less_timeout);
+		/**
+		 * DEBUG
+		 */
+		op.LogPrintDebug(" 提示框标题 "+"   "+cm.ReturnSonTextViewName(CommonPageIdName.Dialog_Login_title_layout,0));
+		op.LogPrintDebug(" 提示框内容 "+"   "+op.ReturnName(CommonPageIdName.Dialog_Login_content_id));
+		op.LogPrintDebug(" 提示框按钮 "+"   "+cm.ReturnSonTextViewName(CommonPageIdName.Dialog_Login_title_layout,0));
+		
+		//assertTrue("提示框标题名称不是提示", cm.ReturnSonTextViewName(CommonPageIdName.Dialog_Login_title_layout,1).equals(CommonPageIdName.Dialog_Login_title_str));
+		solo.sleep(Config.less_timeout);
+		//assertTrue("提示框内容不是请登陆", op.ReturnName(CommonPageIdName.Dialog_Login_content_id).contains(CommonPageIdName.Dialog_Login_content_str));
+		solo.sleep(Config.less_timeout);
+		assertTrue("提示框OK按钮不是登陆",solo.searchText(CommonPageIdName.Dialog_Login_btOK_str, 1, false, true));
+		solo.sleep(Config.less_timeout);
+		assertTrue("提示框Cancel按钮不是取消", solo.searchText(CommonPageIdName.Dialog_Login_btCancel_str, 1, false, true));
+	}
+
 	
 	/**
 	 * 将状态变为已登陆
@@ -165,7 +189,120 @@ public class LoginPage extends Assert{
 		solo.sleep(Config.less_timeout);
 		//assertTrue("弹出退出提示框",solo.waitForDialogToOpen()&&op.ReturnName(CommonPageIdName.Dialog_LoginOut_content_id).contains("要退出"));				
 		op.clickById(CommonPageIdName.btOK_id);
-		assertTrue("返回到登陆页面成功", solo.searchText(CommonPageIdName.HaveALook_string, 3, false, true));
+		//assertTrue("返回到登陆页面成功", solo.searchText(CommonPageIdName.HaveALook_string, 3, false, true));
+	}
+	
+	
+	/**
+	 * 随便看看，登陆保护提示框判断方法类
+	 * 
+	 */
+	
+	/**
+	 * 
+	 * 给随便看看UItravel调用
+	 * 
+	 * 从进入到登陆页面，点击随便看看，找到指定模块的指定id，点击该控件，判断提示框是否正确，如果正确，点击取消按钮，返回到上一次页面
+	 * step1:进入登陆页面，点击随便看看按钮
+	 * step2:点击指定的模块名称，跳转到模块页面，等待刷新完成
+	 * step3：点击指定的按钮
+	 * 
+	 * step4:检查弹出的提示框是不是登陆保护提示框
+	 * step5:点击取消按钮，返回到上一次页面
+	 */
+	public void CheckLoginInProtectDialogIsSuccess(String modulename,int index,String id) throws Exception{
+		LoginProtect_ClickOnID(modulename,index,id);
+		
+		CheckLoginInProtect();
+		solo.sleep(Config.less_timeout);
+		op.clickById(CommonPageIdName.btCancel_id);
+	}
+	/**
+	 * 检验登陆保护模块，设置当前模块位置（eg:通讯录)，设置模块的index值，设置需要点击的按钮id，
+	 * 
+	 * step1:进入登陆页面，点击随便看看按钮
+	 * step2:点击指定的模块名称，跳转到模块页面，等待刷新完成
+	 * step3：点击指定的按钮
+	 */
+	public void LoginProtect_ClickOnID(String modulename,int index,String id) throws Exception{
+		solo.sleep(Config.timeout);
+		op.clickById(CommonPageIdName.HaveALook_id);
+		
+		solo.sleep(Config.timeout);	
+		cm.ClickOnModule(modulename, index);	
+		op.waitForPageFlush();
+		
+		/*
+		 * 点击收藏联系人
+		 */
+		op.clickById(id);
+		
+	}
+	/**
+	 * 输入需要校验的控件id，弹出登陆保护提示框，判断保护框内容是否一致
+	 * step1：点击指定的按钮
+	 * step2:检查弹出的提示框是不是登陆保护提示框
+	 * step3:点击取消按钮，返回到上一次页面
+	 * 
+	 * 还存在问题，需要处理下方法
+	 */
+	public void CheckLoginInProtect(String id) throws Exception{
+		op.clickById(id);
+		CheckLoginInProtect();
+		op.clickById(CommonPageIdName.btCancel_id);
+	}
+	/**
+	 * 输入需要校验的控件id，弹出登陆保护提示框，判断保护框内容是否一致
+	 */
+	public void ClickAndCheckLoginInProtect(String id) throws Exception{
+		op.clickById(id);
+		CheckLoginInProtect();
+		op.clickById(CommonPageIdName.btCancel_id);
+	}
+	/**
+	 * 弹出登陆保护提示框
+	 * 判断提示框标题是"提示"
+	 * 判断提示框内容是"登录后才能使用该功能，请登录!"
+	 * 判断确定按钮的文字是"登陆"
+	 * 判断取消按钮的文字是"取消"
+	 */
+	public void CheckLoginInProtect() throws Exception{
+		assertTrue("提示框弹出失败", solo.waitForDialogToOpen(Config.less_timeout));
+		solo.sleep(Config.timeout);
+		Activity act=solo.getCurrentActivity();
+		/**
+		 * DEBUG
+		 */
+		op.LogPrintDebug(" 提示框标题 "+"   "+op.ReturnName(CommonPageIdName.Dialog_Login_title_id));
+		op.LogPrintDebug(" 提示框内容 "+"   "+op.ReturnName(CommonPageIdName.Dialog_Login_content_id));		
+		solo.sleep(Config.less_timeout);
+		assertTrue("提示框OK按钮不是登陆",(op.checkViewExitsInScreen(CommonPageIdName.Dialog_Login_btOK_id)>0));
+		solo.sleep(Config.less_timeout);
+		assertTrue("提示框Cancel按钮不是取消",(op.checkViewExitsInScreen(CommonPageIdName.Dialog_Login_btCancel_id)>0));
+	}
+	
+	
+	/**
+	 * 错误的方法
+	 * @throws Exception
+	 */
+	public void CheckLoginInProtect_error() throws Exception{
+		assertTrue("提示框弹出失败", solo.waitForDialogToOpen(Config.less_timeout));
+		solo.sleep(Config.timeout);
+		/**
+		 * DEBUG
+		 */
+		op.LogPrintDebug(" 提示框标题 "+"   "+op.ReturnName(CommonPageIdName.Dialog_Login_title_id));
+		op.LogPrintDebug(" 提示框内容 "+"   "+op.ReturnName(CommonPageIdName.Dialog_Login_content_id));
+		//op.LogPrintDebug(" 提示框按钮 "+"   "+cm.ReturnSonTextViewName(CommonPageIdName.btCancel_id,0));
+		
+		//assertTrue("提示框标题名称不是提示", cm.ReturnSonTextViewName(CommonPageIdName.Dialog_Login_title_layout,1).equals(CommonPageIdName.Dialog_Login_title_str));
+		solo.sleep(Config.less_timeout);
+		//assertTrue("提示框内容不是请登陆", op.ReturnName(CommonPageIdName.Dialog_Login_content_id).contains(CommonPageIdName.Dialog_Login_content_str));
+		solo.sleep(Config.less_timeout);
+		assertTrue("提示框OK按钮不是登陆",solo.searchText(CommonPageIdName.Dialog_Login_btOK_str, 1, false, true));
+		solo.sleep(Config.less_timeout);
+		assertTrue("提示框Cancel按钮不是取消", solo.searchText(CommonPageIdName.Dialog_Login_btCancel_str, 1, false, true));
 	}
 	
 }

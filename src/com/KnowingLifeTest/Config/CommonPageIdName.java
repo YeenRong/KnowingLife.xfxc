@@ -34,9 +34,94 @@ public class CommonPageIdName {
 	public static final String HaveALook_id="main_fragment_app_center_login_tv_have_a_look";
 	public static final String HaveALook_string="随便看看";
 	
+	/*
+	 *登陆保护提示框
+	 *
+	 *标题--layout--dialog_normal_title--android.widget.LinearLayout
+	 * 标题--提示--title--textview--index--0
+	 * 登录后才能使用该功能，请登录!-- content-textview--index--1
+	 * btCancel--取消--android.widget.Button
+	 * btOK--登陆----android.widget.Button
+	 */
+	public static final String Dialog_Login_title_layout="dialog_normal_title";
+	public static final String Dialog_Login_title_id="title";
+	public static final String Dialog_Login_title_str="提示";
+	public static final String Dialog_Login_content_id="content";
+	public static final String Dialog_Login_content_str="登录后才能使用该功能，请登录!";
+	public static final String Dialog_Login_btCancel_str="取消";
+	public static final String Dialog_Login_btOK_str="登录";
+	public static final String Dialog_Login_btCancel_id="btCancel";
+	public static final String Dialog_Login_btOK_id="btOK";
+	
 	/**
 	 * @category 通讯录
+	 * 数字村谱主页的id及文字
 	 */
+
+	/*
+	 * 数字村谱模块标题
+	 * 
+	 * 模块标题--数字村谱--site_title--TextView
+	 * 我的村谱+我的组织+推荐组织组成的列表--list--ExpandableListView
+	 * 每个分类的标题--tv_title--TextView
+	 * 绑定村庄--xfxc_addfsecod--LinearLayout
+	 *   绑定村庄--TextView--index--1
+	 * 
+	 * 搜索联系人--layout--site_main_search--LinearLayout
+	 *   搜索图标--site_main_iv_search--ImageView
+	 *   搜索文字（水印)--搜索联系人--site_main_tv_search--TextView
+	 * 本地通讯录--site_main_local_contact_slideview--LinearLayout--最上层的layout
+	 *   本地通讯录--view_content--LinearLayout--第2层的layout
+	 *   头像--site_main_local_iv_icon--ImageView
+	 *   文字--本地通讯录--TextView
+	 * 收藏联系人--site_main_local_contact_slideview2--LinearLayout
+	 *   文字--收藏联系人--TextView--index-1
+	 */
+	public static final String Digital_Village_id="site_title";
+    public static final String Digital_Village_STRING="数字村谱";
+    public static final String BindVillage_id="xfxc_addfsecod";
+    public static final String BindVillage_string="绑定村庄";
+    public static final String myvillage_id="tv_title";
+    public static final String myvillage_str="我的村谱";
+    
+    public static final String SearchContact_layout_id="site_main_search";
+    public static final String SearchContact_headicon="site_main_iv_search";
+    public static final String SearchContact_id="site_main_tv_search";
+    public static final String SearchContact_str="搜索联系人";
+    public static final String LocalContact_layout="view_content";
+    public static final String LocalContact_str="本地通讯录";
+    
+    public static final String CollectContact_layout="site_main_local_contact_slideview2";
+    public static final String CollectContact_str="收藏联系人";
+    
+  
+	/*
+	 * 推荐组织及我感兴趣的组织、添加/创建组织、menu--添加组织、组织排序
+	 * 
+	 * 我感兴趣的组织
+	 *   头像--imageview--site_main_list_item_image_iv；
+	 *   layout--site_main_list_content--LinearLayout
+	 *     名称--我感兴趣的组织--TextView--site_main_list_name_tv--index--0
+	 *     描述--您感兴趣的组织就在您身边，一键轻松找，快来看看吧--TextView--site_main_list_memo_tv--index--1
+	 * 添加/创建组织--layout--.LinearLayout--site_main_add_more
+	 *   文字--添加/创建组织--TextView
+	 * menu--ImageButton--site_main_menu
+	 * menu-添加组织
+	 * menu--组织排序
+	 */
+    public static final String MyInterestSite_headicon="site_main_list_item_image_iv";
+    public static final String MyInterestSite_layout="site_main_list_content";
+    public static final String MyInterestSite_name_id="site_main_list_name_tv";
+    public static final String MyInterestSite_name_str="我感兴趣的组织";
+    public static final String MyInterestSite_desc_id="site_main_list_memo_tv";
+    public static final String MyInterestSite_desc_str="您感兴趣的组织就在您身边，一键轻松找，快来看看吧";
+    public static final String Add_Or_CreateSite_layout="site_main_add_more";   
+    public static final String Add_Or_CreateSite_str="添加/创建组织";
+    public static final String menu_id="site_main_menu";
+    public static final String menu_AddSite="添加组织";
+    public static final String menu_SiteOrder="组织排序";
+
+    
 	/*
 	 * 名称--文字--id--view的类别
 	 * 组织创建页面

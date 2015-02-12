@@ -38,85 +38,77 @@ public class CommonMethod extends Assert{
 		om=new OpenMethod(solo);
 	}
 	
-	/**
+	/*
 	 * 切换模块的方法，0--动态,1--智媒体,2--通讯录,3--商会帮,4--更多
 	 */
 	/*
-	//动态模块
-	public void DynamicMode(){
-		op.clickById(PageIdName.TabText, 0);	
-		solo.sleep(Config.timeout);
-		solo.takeScreenshot(Config.Dynamic);
-	}
-	//智媒体模块
-	public void Chilean_mediaMode(){
-		op.clickById(PageIdName.TabText, 1);
-		solo.sleep(Config.timeout);
-		solo.takeScreenshot(Config.Chilean_media);
-
-	}
-	//通讯录模块
-	public void ContactsMode(){
-		op.clickById(PageIdName.TabText, 2);
-		solo.sleep(Config.timeout);
-		solo.takeScreenshot(Config.Contacts);
-
-	}
-	//商会帮模块
-	public void SHBhomeMode(){
-		op.clickById(PageIdName.TabText, 3);
-		solo.sleep(Config.timeout);
-		solo.takeScreenshot(Config.SHBhome);
-
-	}
-	//更多模块
-	public void MoreMode(){
-		op.clickById(PageIdName.TabText, 4);
-		solo.sleep(Config.timeout);
-		solo.takeScreenshot(Config.More);
-
-	}
-	*/
-	/**
-	 * 封装模块名称,点击动态
-	 */	
-	public void clickonDynamic(){
+	 public void clickonDynamic(){
 		View view=solo.getView("tabText", 0);
 		solo.clickOnView(view);
 		op.waitForPageFlush(Config.Dynamic);
 	}
-	/**
-	 * 封装模块名称,点击智媒体
-	 */
 	public void clickonChilean_media(){
 		View view=solo.getView("tabText", 1);
 		solo.clickOnView(view);
 		op.waitForPageFlush();
 	}
-	/**
-	 * 封装模块名称,点击幸福乡村
-	 */
 	public void clickonXFXChome(){
 		View view=solo.getView("tabText", 3);
 		solo.clickOnView(view);
 		op.waitForPageFlush(Config.xfxchome);
 
 	}
-	/**
-	 * 封装模块名称,点击数字村谱
-	 */
 	public void clickonContacts(){
 		View view=solo.getView("tabText", 2);
 		solo.clickOnView(view);
 		op.waitForPageFlush(Config.DigitalVillage);
 	}
-	/**
-	 * 封装模块名称,点击更多
-	 */
 	public void clickonMore(){
 		View view=solo.getView("tabText", 4);
 		solo.clickOnView(view);
 		op.waitForPageFlush(Config.More);
+	}
+	*/
+	 
+	 
+	/**
+	 * 封装模块名称
+	 * 第一个参数代表模块名称，第2个参数代表tabtext的位置
+	 */
+	public void ClickOnModule(String modulename,int index){
+		View view=solo.getView("tabText", index);
+		solo.clickOnView(view);
+		op.waitForPageFlush(modulename);
+	}
+	/**
+	 * 封装模块名称,点击动态
+	 */	
+	public void clickonDynamic(){
+		ClickOnModule(Config.Dynamic, 0);
+	}
+	/**
+	 * 封装模块名称,点击智媒体
+	 */
+	public void clickonChilean_media(){
+		ClickOnModule(Config.Chilean_media, 1);
+	}
+	/**
+	 * 封装模块名称,点击幸福乡村
+	 */
+	public void clickonXFXChome(){
+		ClickOnModule(Config.HomePage, 3);
+	}
+	/**
+	 * 封装模块名称,点击数字村谱
+	 */
+	public void clickonContacts(){
+		ClickOnModule(Config.Contacts, 2);
+	}
+	/**
+	 * 封装模块名称,点击更多
+	 */
+	public void clickonMore(){
+		ClickOnModule(Config.More, 4);
 	}
 	
 	/**
@@ -674,6 +666,7 @@ public class CommonMethod extends Assert{
 	/**
 	 * 对比文字是否一致，boolean类型
 	 * 第一个参数代表
+	 * id 调用的方法是op.ReturnName
 	 */
 	public boolean CompareTextIsSame(String id,String except){
 		String actual;
@@ -688,13 +681,16 @@ public class CommonMethod extends Assert{
 		}
 	}
 	/**
-	 * 方法--有3个参数，第一个参数--view（一般是layout）,第2个参数是想查找的控件类别（eg:TextView）,第三个是控件的index
+	 * 方法--有3个参数，第一个参数--view（一般是layout）,第2个是控件的index
+	 * --,第2个参数是想查找的控件类别（eg:TextView）--去除掉
 	 */
 	public String ReturnSonTextViewName(String layout_id,int index){
 		
 		String Layout_str=null;
 		View view1;
+		assertTrue(layout_id+" --  "+"页面无该id",op.checkViewExitsInScreen(layout_id)>0);
 		View view=op.ReturnViewFromID(layout_id);
+		
 		//ArrayList<View> viewList = new ArrayList<View>();
 		if(view != null) {				
 			ViewGroup viewGroup= (ViewGroup) view;			
