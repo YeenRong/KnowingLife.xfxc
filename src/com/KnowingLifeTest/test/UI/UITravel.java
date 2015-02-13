@@ -50,19 +50,6 @@ public class UITravel extends ActivityInstrumentationTestCase2{
 		super.tearDown();
 	}
 	/**
-	 * 检查当前页面是不是未登陆状态
-	 */
-	public void testCheckHavealook() throws Exception{
-		solo.sleep(Config.less_timeout);
-		if(solo.searchText(Config.xfxchome, 1, false, true)){
-			solo.sleep(Config.less_timeout);
-			lPage.CheckLoginOut();		
-		}else{
-			
-		}
-	}
-	
-	/**
 	 * 数字村谱模块
 	 * @throws Exception
 	 */
@@ -70,24 +57,28 @@ public class UITravel extends ActivityInstrumentationTestCase2{
 	 * 点击收藏联系人
 	 */
 	public void testHavealook_CollectContact() throws Exception{
+		lPage.CheckHavealook();
 		lPage.CheckLoginInProtectDialogIsSuccess(Config.Contacts, 2, CommonPageIdName.CollectContact_layout);	
 	}
 	/*
 	 * 点击绑定村庄
 	 */
 	public void testHavealook_BindVillage() throws Exception{
+		lPage.CheckHavealook();
 		lPage.CheckLoginInProtectDialogIsSuccess(Config.Contacts, 2, CommonPageIdName.BindVillage_id);	
 	}
 	/*
 	 * 点击我感兴趣的组织
 	 */
 	public void testHavealook_MyInterestSite() throws Exception{
+		lPage.CheckHavealook();
 		lPage.CheckLoginInProtectDialogIsSuccess(Config.Contacts, 2, CommonPageIdName.MyInterestSite_layout);	
 	}
 	/*
 	 * 点击添加/创建组织
 	 */
 	public void testHavealook_AddOrCreateSite() throws Exception{
+		lPage.CheckHavealook();
 		lPage.CheckLoginInProtectDialogIsSuccess(Config.Contacts, 2, CommonPageIdName.Add_Or_CreateSite_layout);	
 	}
 	/*
@@ -95,6 +86,7 @@ public class UITravel extends ActivityInstrumentationTestCase2{
 	 * failed
 	 */
 	public void testHavealook_Menu_AddSite() throws Exception{
+		lPage.CheckHavealook();
 		op.clickById(CommonPageIdName.menu_id);
 		solo.clickOnText(CommonPageIdName.menu_AddSite);
 	}
@@ -103,6 +95,7 @@ public class UITravel extends ActivityInstrumentationTestCase2{
 	 * failed
 	 */
 	public void testHavealook_Menu_SiteOrder() throws Exception{
+		lPage.CheckHavealook();
 		op.clickById(CommonPageIdName.menu_id);
 		solo.clickOnText(CommonPageIdName.menu_SiteOrder);	
 	}

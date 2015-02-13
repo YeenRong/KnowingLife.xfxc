@@ -190,6 +190,7 @@ public class LoginPage extends Assert{
 		//assertTrue("弹出退出提示框",solo.waitForDialogToOpen()&&op.ReturnName(CommonPageIdName.Dialog_LoginOut_content_id).contains("要退出"));				
 		op.clickById(CommonPageIdName.btOK_id);
 		//assertTrue("返回到登陆页面成功", solo.searchText(CommonPageIdName.HaveALook_string, 3, false, true));
+		solo.sleep(Config.timeout);
 	}
 	
 	
@@ -197,12 +198,25 @@ public class LoginPage extends Assert{
 	 * 随便看看，登陆保护提示框判断方法类
 	 * 
 	 */
-	
+	/**
+	 * 检查当前页面是不是未登陆状态
+	 */
+	public void CheckHavealook() throws Exception{
+		solo.sleep(Config.less_timeout);
+		if(solo.searchText(Config.xfxchome, 1, false, true)){
+			solo.sleep(Config.less_timeout);
+			CheckLoginOut();		
+		}else{
+			
+		}
+	}
 	/**
 	 * 
 	 * 给随便看看UItravel调用
 	 * 
 	 * 从进入到登陆页面，点击随便看看，找到指定模块的指定id，点击该控件，判断提示框是否正确，如果正确，点击取消按钮，返回到上一次页面
+	 * step0:判断当前状态是否为随便看看，如果为登陆状态，则退出应用
+	 * 
 	 * step1:进入登陆页面，点击随便看看按钮
 	 * step2:点击指定的模块名称，跳转到模块页面，等待刷新完成
 	 * step3：点击指定的按钮
@@ -211,8 +225,7 @@ public class LoginPage extends Assert{
 	 * step5:点击取消按钮，返回到上一次页面
 	 */
 	public void CheckLoginInProtectDialogIsSuccess(String modulename,int index,String id) throws Exception{
-		LoginProtect_ClickOnID(modulename,index,id);
-		
+		LoginProtect_ClickOnID(modulename,index,id);	
 		CheckLoginInProtect();
 		solo.sleep(Config.less_timeout);
 		op.clickById(CommonPageIdName.btCancel_id);

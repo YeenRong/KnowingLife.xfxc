@@ -94,7 +94,23 @@ public class CommonPageIdName {
     public static final String CollectContact_layout="site_main_local_contact_slideview2";
     public static final String CollectContact_str="收藏联系人";
     
-  
+    /*
+     * 组织(站点)布局--
+     * 头像、站点名称、站点描述、站点代码
+     */
+    public static final String Site_headicon="site_main_list_item_image_iv";
+    public static final String SiteText_layout="site_main_list_content";
+    
+    /*
+     * 组织主页布局
+     * 组织主页
+     * 
+     * 右上角菜单按钮--获取到该MENU控件的坐标--site_detail_menu--ImageButton
+	 * 背景图片的id--site_detail_image_bg--imageview
+     */
+    public static final String SiteMainPage_menu="site_detail_menu";
+    public static final String SiteBackGroundImage="site_detail_image_bg";
+    
 	/*
 	 * 推荐组织及我感兴趣的组织、添加/创建组织、menu--添加组织、组织排序
 	 * 

@@ -111,64 +111,25 @@ public class CommonMethod extends Assert{
 		ClickOnModule(Config.More, 4);
 	}
 	
+	
+	
+	
+
 	/**
-	 * 输入项目名称
+	 * 通讯录模块方法集合
 	 */
-	public void EnterProjectName(){
-		EditText editText=(EditText)solo.getView(PageIdName.PublishPage_ProjectName_id);
-		solo.enterText(editText, "中国高铁");
-	}
-	public void EnterMoneyNum(){
-		EditText editText=(EditText)solo.getView(PageIdName.PublishPage_spendMoney_id);
-		solo.enterText(editText, "30");
-	}
-	/*
-	public void EnterchooseArea(){
-		EditText editText=(EditText)solo.getView(PageIdName.PublishPage_chooseArea_id);
-		solo.clickOnView(editText);
-		solo.sleep(1000);
-		View province=om.idToView(PageIdName.PublishPage_Area_province_id);
-		solo.sleep(1000);
-		View city=om.idToView(PageIdName.PublishPage_Area_city_id);
-		solo.sleep(1000);
-		View town=om.idToView(PageIdName.PublishPage_Area_town_id);
-		solo.sleep(1000);
-		Log.d(TAG, "获取id成功");
-		solo.clickOnView(province);
-		solo.sleep(1000);
-		om.dragViewTopToDown(province);
-		solo.sleep(2000);
-		om.dragViewTopToDown(city);
-		solo.sleep(2000);
-		om.dragViewTopToDown(town);
-		solo.sleep(2000);
-		op.clickById(PageIdName.Confirm);
-	}*/
+	
+
+	
+
+	
+	
+	
+	
+	
 	/**
 	 * 通用的方法：只要输入一个关键字编辑框的id名称，其他选择地区框，三个id都一样，都是province,month,month2
 	 */
-	public void EnterchooseArea(String id){
-		//id 代表的是选择区域进入时的编辑框ID
-		EditText editText=(EditText)solo.getView(id);
-		solo.clickOnView(editText);
-		solo.sleep(1000);
-		View province=solo.getView(PageIdName.PublishPage_Area_province_id);
-		solo.sleep(1000);
-		View city=solo.getView(PageIdName.PublishPage_Area_city_id);
-		solo.sleep(1000);
-		View town=solo.getView(PageIdName.PublishPage_Area_town_id);
-		solo.sleep(1000);
-		Log.d(Config.TAG, "获取id成功");
-		//solo.clickOnView(province);
-		solo.sleep(1000);
-		om.dragPage(province);
-		solo.sleep(1000);
-		om.dragPage(city);
-		solo.sleep(1000);
-		om.dragPage(town);
-		solo.sleep(1000);
-		op.clickById(PageIdName.Confirm);
-	}
 	public void EnterchooseArea(String id,int index){
 		//id 代表的是选择区域进入时的编辑框ID
 		EditText editText=(EditText)solo.getView(id);
@@ -191,121 +152,76 @@ public class CommonMethod extends Assert{
 		solo.sleep(1000);
 		op.clickById(PageIdName.Confirm);
 	}
-	/*
-	 * 选择行业，可以做for循环
-	 */
-	public void Enterchooseindusty(){
-		EditText editText=(EditText)solo.getView(PageIdName.PublishPage_chooseIndustry_id);
-		solo.clickOnView(editText);
-		solo.sleep(1000);
-		//View view1=solo.getView(PageIdName.PublishPage_Area_province_id);
-		ArrayList<ListView> listView=solo.getCurrentViews(ListView.class);
-		View view=solo.getView("text1", 3);
-		solo.clickOnView(view);
-	}
-	public void EnterProjectinfo(){
-		EditText editText=(EditText)solo.getView(PageIdName.PublishPage_Projectinfo_id);
-		solo.enterText(editText, "中国高铁");
-	}
-	public void EnterProjectcontact(){
-		EditText editText=(EditText)solo.getView(PageIdName.PublishPage_Fcontact_id);
-		solo.enterText(editText, "13067905358");
-	}
-	/**
-	 * 项目管理页面方法
-	 */
-	//暂停或者发布项目
-	public void PauseclickOn(String pausename,String toast) throws Exception{
-	op.clickById(PageIdName.ProjectManager_id);
-	op.waitForPageFlush();
-	ArrayList<ListView> listView=solo.getCurrentViews(ListView.class);
-	if(listView.size()==0){
-		Log.d(Config.TAG, "嗯呃，暂时没内容。");
-	}else{
-		for(int i=0;i<listView.size();i++){
-			
-			TextView view=(TextView) solo.getView(PageIdName.Project_status_id, i);
-			if(view.getText().toString().equals(pausename)){
-			//if(view.getText().toString().equals("发布")){
-				op.clickById(PageIdName.status_menu);
-				solo.sleep(1000);
-				op.clickById(PageIdName.status_Pause_id, i);
-				solo.takeScreenshot(pausename);
-				assertTrue("获取信息失败", op.ToastFindLike(new String[]{"正在获取数据",toast}));
-			//	solo.takeScreenshot("发布");
-			//	assertTrue("暂停项目不成功", op.ToastFindLike(new String[]{"正在获取数据","项目已暂停"}));
-			}
-		}
-	}
-	}
-	
-	
-
-	/**
-	 * 通讯录模块方法集合
-	 */
-	
-	/*
-	 * 进入到搜索站点页面
-	 */
-	
-	
-	/**
-	 * 供应信息的功能模块
-	 */
-	/*
-	 * 发布供应
-	 */
-	public void createSupply() throws Exception{
-		op.clickById("supplydemand_supply_publish");
-		op.takeScreenshot();
-	}
-	/*
-	 * 发布需求
-	 */
-	public void createDemand() throws Exception{
-		op.clickById("supplydemand_demand_publish");
-		op.takeScreenshot();
-	}
-	/*
-	 * 供求管理
-	 */
-	public void supplydemand_manager() throws Exception{
-		op.clickById("supplydemand_manager");
-		op.takeScreenshot();
-	}
-	
-	
-	/**
-	 * 商帮互助
-	 */
-	/*
-	 * 发布互助
-	 */
-	public void createBunisessHelp() throws Exception{
-		op.clickById("business_mainlist_item_new_consult");
-		op.takeScreenshot();
-	}
-	
-	
-	
-	/**
-	 * @author liuliang
-	 * @date 2015-02-10
-	 * 发布页面共有的方法，输入名称，地区，详情，联系方式，添加图片
-	 */
-	
-	
-	
 	
 	
 	
 	/**
 	 * 数字村谱相关的功能
 	 */
-	/*
-	 * 村庄查找
+	
+	/**
+	 * 验证我的村谱是否绑定村庄
 	 */
+	public void CheckVillageIsBind() throws Exception{
+		if(solo.searchText(CommonPageIdName.BindVillage_string, 2, false, true)){
+			SearchVillageAndBind();
+		}else{
+			UnBundVillage();
+		}
+	}
+	/**
+	 * 查找村庄，并尝试去绑定村庄
+	 * @throws Exception
+	 */
+	public void SearchVillageAndBind() throws Exception{
+		op.clickById(CommonPageIdName.BindVillage_id);
+		//EnterVillageSearchPage();
+		solo.sleep(Config.timeout);
+		SearchSite_Name("花园");
+	}
+	
+	/**
+	 * 解除绑定村庄
+	 */
+	public void UnBundVillage() throws Exception{
+		View view=solo.getView(CommonPageIdName.Site_headicon, 0);
+		solo.clickOnView(view);
+		solo.sleep(Config.less_timeout);
+		op.clickById(CommonPageIdName.SiteMainPage_menu);
+		solo.sleep(Config.timeout);
+		SiteMainPage_UnBundSite();
+		op.waitForPageFlush();
+	}
+	/**
+	 * 组织主页的退出组织按钮
+	 * 
+	 * 
+	 * 方法1：
+	 * 获取到menu的中心点坐标，+1个menu的高度=退出组织按钮的中心点
+	 * 获取到menu的中心点坐标，+2个menu的高度=解绑组织按钮的中心点
+	 * 
+	 * 方法2：
+	 * 对比3台设备后，发现退出组织按钮+解绑组织按钮的高度=背景图片的高度
+	 * 退出组织按钮坐标=(背景图片宽度*6/8,背景图片最上角的坐标高度+H/2)
+	 * 
+	 * 
+	 * @throws Exception
+	 */
+	/**
+	 * 退出站点
+	 * @throws Exception
+	 */
+	public void SiteMainPage_DropOutSite() throws Exception{
+		om.ClickViewFromToCoordinates(om.idToView(CommonPageIdName.SiteMainPage_menu), 0.1f, 1.0f);				
+	}
+	/**
+	 * 解绑村庄
+	 * @throws Exception
+	 */
+	public void SiteMainPage_UnBundSite() throws Exception{
+		om.ClickViewFromToCoordinates(om.idToView(CommonPageIdName.SiteMainPage_menu), 0.1f, 2.0f);						
+	}
+
 	/**
 	 * 选择组织，当站点数大于10个或者站点成员数大于20000时，会弹出选择组织页面
 	 */
@@ -333,6 +249,7 @@ public class CommonMethod extends Assert{
 		solo.clickOnText("详情");
 		op.takeScreenshot();	
 	}
+	
 	/*
 	 * 组织查找
 	 */
@@ -350,6 +267,11 @@ public class CommonMethod extends Assert{
 			ClickOnJoin();			
 		}				
 	}
+	/**
+	 * 点击添加／查找组织，输入搜索词，点击立即搜索，得到搜索结果，判断搜索结果是否包含搜索词，
+	 * 然后点击加入按钮，开始填写验证信息，点击提交申请，申请成功后，返回站点主页面
+	 *搜索词-- 高级搜索--区域、行业
+	 */
 	public void SearchSite_Region(String str) throws Exception{
 		ClickOnAddOrSearchSite();
 		SearchSite_enterSearchName(str);
@@ -572,7 +494,7 @@ public class CommonMethod extends Assert{
 	}
 	
 	/**
-	 * @创建站点
+	 * @创建站点--复杂模式
 	 * step1:点击组织查找页面的-->点击申请创建，进入创建组织页面
 	 * step2：依次输入组织头像(默认不填写)、组织名称、所属行业、组织描述、所在位置、联系人、手机号码
 	 * step3:点击开始创建组织，弹出提示"申请成功"
@@ -706,23 +628,24 @@ public class CommonMethod extends Assert{
 		}
 		return Layout_str;
      }
-	/*
+	/**
+	 * @deprecated
 	 * 错误的方法
-	 
-	public String ReturnSonTextViewName(String layout_id){
+	 */
+	public String ReturnSonTextViewName(String layout_id,TextView textView){
 					
 		String Layout_str=null;
 		View view1;
 		View view=op.ReturnViewFromID(layout_id);
-		TextView textvView;
+		TextView textvView=textView;
 		ArrayList<View> viewList = new ArrayList<View>();
 		if(view != null) {				
 			ViewGroup viewGroup= (ViewGroup) view;			
 			for(int i=0;i< viewGroup.getChildCount();i++) {
-				Log.d(TAG,String.valueOf(viewGroup.getChildCount()));
+				Log.d(Config.TAG,String.valueOf(viewGroup.getChildCount()));
 				
 				final View child=viewGroup.getChildAt(i);
-				if(child.equals(TextView)){
+				if(child.equals(textvView)){
 					view1=child;
 					Layout_str=op.ReturnNameFromView(view1);
 					break;
@@ -731,7 +654,7 @@ public class CommonMethod extends Assert{
 			}
 		}
 		return Layout_str;
-	}*/
+	}
 	/**
 	 * 点击--点击申请创建 按钮
 	 */

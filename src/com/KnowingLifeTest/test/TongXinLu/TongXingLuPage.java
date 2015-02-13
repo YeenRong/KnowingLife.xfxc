@@ -61,14 +61,6 @@ public class TongXingLuPage extends ActivityInstrumentationTestCase2 {
 		//}
 		solo.sleep(4000);
 	}
-	public void test1_TabChange(){
-	    solo.takeScreenshot();
-		assertTrue("获取智媒体失败", solo.searchText("智媒体", 2, true, true));
-		solo.clickOnText("智媒体");
-		solo.sleep(20000);
-		solo.takeScreenshot();	
-		
-	}
 	
 	
 

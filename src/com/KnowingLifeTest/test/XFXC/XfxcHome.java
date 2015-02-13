@@ -49,7 +49,7 @@ public class XfxcHome extends ActivityInstrumentationTestCase2 {
 		super.tearDown();
 	} 
 	/*
-	 * 测试商会帮首页各模块
+	 * 测试幸福乡村首页各模块
 	 * 
 	 */
 	public void testhomeswitch() throws Exception{
@@ -61,22 +61,7 @@ public class XfxcHome extends ActivityInstrumentationTestCase2 {
 		op.into_module_back(Config.OneVillageOneProdect);
 		op.into_module_back(Config.TravelRecommendation);
 		op.into_module_back(Config.ContactUs);
-		//op.into_module_back(Config.Discovery);
 	}
-	/*public void testmodulechange() throws Exception{
-		cm.clickonDynamic();
-		op.waitForPageFlush(Config.Dynamic);
-		Log.d(Config.TAG, Config.Dynamic);
-		cm.clickonChilean_media();
-		op.waitForPageFlush("未选择");
-		Log.d(Config.TAG, "未选择");
-		cm.clickonContacts();
-		op.waitForPageFlush(Config.Contacts);
-		Log.d(Config.TAG, "未选择1");
-		cm.clickonSHBhome();
-		op.waitForPageFlush(Config.SHBhome);
-		cm.clickonMore();
-		op.waitForPageFlush(Config.More);
-	}*/
+
 	
 }

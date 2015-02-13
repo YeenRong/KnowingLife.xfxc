@@ -59,6 +59,33 @@ public class OpenMethod extends Assert{
 		Log.d(Config.TAG, "xylocation［0］"+" :"+String.valueOf(xyLocation[0])+" "+"xylocation[1]"+":"+String.valueOf(xyLocation[1]));	
 		}
 	/**
+	 * 以View作为参考，来获取相对应的坐标
+	 * 找到某个view，然后返回坐标(view的左上角坐标）+view的宽高
+	 * 
+	 * @param view
+	 * @param Xpercent
+	 * @param Ypercent
+	 * @throws Exception
+	 */
+	public void ClickViewFromToCoordinates(View view,float Xpercent, float Ypercent) throws Exception{
+		int[] xyLocation = new int[2];
+		// 存储view的xy坐标，左上角坐标值
+		view.getLocationOnScreen(xyLocation);
+		// 获取view的宽度
+		final int viewWidth = view.getWidth();
+		// 获取view的高度
+		final int viewHeight = view.getHeight();
+		
+		// 计算view的左上角的x坐标	
+		final float viewLeftTop_x=xyLocation[0];
+		// 计算view的左上角的y坐标
+	    final float viewLeftTop_y=xyLocation[1];
+	    float DropOut_X=viewLeftTop_x*Xpercent;
+	    float DropOut_Y=viewLeftTop_y+viewHeight*Ypercent;
+	    
+	    solo.clickOnScreen(DropOut_X,DropOut_Y);	
+	}
+	/**
 	 * 重写drag方法，
 	 * 可以从view的任意点滑倒任意点
 	 * 从view的最底部滑倒view的最上方，用来判断区域的滑动比例，可以选择滑动的比例是多少
@@ -86,10 +113,12 @@ public class OpenMethod extends Assert{
 		final int viewWidth = view.getWidth();
 		// 获取view的高度
 		final int viewHeight = view.getHeight();
-		// 计算view的左上角的x坐标
+		
+		// 计算view的左上角的x坐标	
 		final float viewLeftTop_x=xyLocation[0];
 		// 计算view的左上角的y坐标
 	    final float viewLeftTop_y=xyLocation[1];
+	    
 	    float FromX=viewLeftTop_x+viewWidth*dragPercentFrom_X;
 	    float FromY=viewLeftTop_y+viewHeight*dragPercentFrom_Y;   
 	    float ToX=viewLeftTop_x+viewWidth*dragPercentTo_X;

@@ -1,5 +1,6 @@
 package com.KnowingLifeTest.test.TongXinLu;
 
+import com.KnowingLifeTest.Config.CommonPageIdName;
 import com.KnowingLifeTest.Config.Config;
 import com.KnowingLifeTest.MethodGroup.CommonMethod;
 import com.KnowingLifeTest.MethodGroup.MethodGroup;
@@ -7,7 +8,7 @@ import com.robotium.solo.Solo;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-public class ChooseSite extends ActivityInstrumentationTestCase2 {
+public class BindVillage extends ActivityInstrumentationTestCase2 {
 	private Solo solo;
 	//要测试的apk的包名
 	private static final String TARGET_PACKAGE_ID=Config.PackageName;
@@ -23,10 +24,9 @@ public class ChooseSite extends ActivityInstrumentationTestCase2 {
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
-	}
-	
+	}	
 	@SuppressWarnings({ "unchecked", "deprecation" })
-	public ChooseSite() {
+	public BindVillage() {
 		super(TARGET_PACKAGE_ID,launcherActivityClass);
 	}
 	protected void setUp() throws Exception {	
@@ -40,9 +40,19 @@ public class ChooseSite extends ActivityInstrumentationTestCase2 {
 		solo.finishOpenedActivities();			
 		super.tearDown();
 	}
-	public void testChooseSite() throws Exception{
-		//op.CheckstayLoginPage();		
+	/**
+	 * 验证绑定村庄：搜索到该站点，然后点击绑定按钮，返回到通讯录主页，页面刷新，我的村谱中有该站点
+	 */
+	public void testBindVillage() throws Exception{
 		cm.clickonContacts();
-		op.ChooseSite();		
+		op.waitForPageFlush(CommonPageIdName.LocalContact_str);
+		if(solo.searchText(CommonPageIdName.BindVillage_string, 2, false, true)){
+			cm.SearchVillageAndBind();			
+		}else{
+			cm.UnBundVillage();
+			cm.SearchVillageAndBind();
+		}
+		
+		
 	}
 }

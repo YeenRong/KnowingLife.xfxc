@@ -55,12 +55,9 @@ public class LoginIn extends ActivityInstrumentationTestCase2 {
 	/**
 	 * 测试登陆
 	 */
-	public void testAA(){
-		solo.sleep(2000);
-	}
+	
 	//检查引导页面是否关闭
-	public void testAHelpPageIsClosed() throws Exception{
-		
+	public void testAHelpPageIsClosed() throws Exception{		
 		lPage.CheckDialogClosedSuccess();
 	}
 	//检查随便看看，注册新用户，忘记密码文字是否存在
@@ -71,16 +68,4 @@ public class LoginIn extends ActivityInstrumentationTestCase2 {
 	public void testLoginInSuccess() throws Exception{
 		lPage.CheckLoginInSuccess(Config.usernammString, Config.passwordString);
 	}
-	
-	public void testcreateSite() throws Exception{
-		cm.CreateSite_simple();
-	}
-	
-	
-	//检查退出登陆是否成功
-	/*
-	public void testLoginOutSucess() throws Exception{
-		lPage.CheckLoginOut();
-	}
-	*/
 }

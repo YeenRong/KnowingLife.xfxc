@@ -55,7 +55,6 @@ public class TravelGridView extends ActivityInstrumentationTestCase2 {
         	ImageView imageView=(ImageView) solo.getView(CommonPageIdName.JoinSiteCheck_ImageView, i);
 			solo.clickOnView(imageView);
 			solo.sleep(Config.less_timeout);
-
 			op.takeScreenshot();
 			solo.sleep(Config.less_timeout);
 			solo.goBack();		
