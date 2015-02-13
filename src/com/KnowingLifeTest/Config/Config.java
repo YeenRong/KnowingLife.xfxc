@@ -9,7 +9,7 @@ public class Config {
 	public static String passwordString="a112233shb";
 	public static int timeout=10000;
 	public static int less_timeout=1000;
-	public static int long_timeout=1000;
+	public static int long_timeout=3000;
 	/*public static String ProgramMatch="项目撮合";
 	public static String PrivateLawer="私人律师";
 	public static String SupplyandNeedinfo="供求信息";
@@ -53,7 +53,9 @@ public class Config {
     /**
      * 调试用日志
      */
-    public static String TAG="shb_log";
+    public static String SearchText="花园";
+    public static String TAG="xfxc_log";
+    public static String Warn_TAG="Method_not_found";
     public static String Error_TAG="result_error";
     public static String getfailedmessage="获取信息失败";
     public static String getcrashmessage="应用崩溃";
@@ -71,10 +73,18 @@ public class Config {
     public static String site_mobile="13067905358";
     public static String site_contact_name="王宇";
     
+    
     public static String[] Createsiteinfo={"必填","未选择(可选)","未填写","","","",""};
   //  public static String site_
-    
-    
+    /*
+     * 第一个是指搜索框的id，第2个是指立即搜索的按钮id，第3个是查找的页面的标题
+     */
+    public static String[] Search_Village=
+    	{CommonPageIdName.SearchVillageEdit_ID,CommonPageIdName.SearchVillageBtn_id,
+    	CommonPageIdName.SearchVillageResult_Title_str};
+    public static String[] Search_Site=
+    	{CommonPageIdName.SearchSiteEdit,CommonPageIdName.SearchSiteBtn_id,
+    	CommonPageIdName.SearchSiteTitle_str};
     
     
     /*

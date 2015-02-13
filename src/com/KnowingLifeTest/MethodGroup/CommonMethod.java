@@ -177,7 +177,7 @@ public class CommonMethod extends Assert{
 		op.clickById(CommonPageIdName.BindVillage_id);
 		//EnterVillageSearchPage();
 		solo.sleep(Config.timeout);
-		SearchSite_Name("花园");
+		SearchVillage_Name(Config.SearchText,Config.Search_Village);
 	}
 	
 	/**
@@ -187,7 +187,7 @@ public class CommonMethod extends Assert{
 		View view=solo.getView(CommonPageIdName.Site_headicon, 0);
 		solo.clickOnView(view);
 		solo.sleep(Config.less_timeout);
-		op.clickById(CommonPageIdName.SiteMainPage_menu);
+
 		solo.sleep(Config.timeout);
 		SiteMainPage_UnBundSite();
 		op.waitForPageFlush();
@@ -212,14 +212,17 @@ public class CommonMethod extends Assert{
 	 * @throws Exception
 	 */
 	public void SiteMainPage_DropOutSite() throws Exception{
-		om.ClickViewFromToCoordinates(om.idToView(CommonPageIdName.SiteMainPage_menu), 0.1f, 1.0f);				
+		//om.ClickViewFromToCoordinates(om.idToView(CommonPageIdName.SiteBackGroundImage),CommonPageIdName.SiteMainPage_menu, 0.8f, 0.4f);	
+		om.ClickViewFromToCoordinates(om.idToView(CommonPageIdName.SiteMainPage_menu), CommonPageIdName.SiteMainPage_menu,0.1f, 1.0f);				
+
 	}
 	/**
 	 * 解绑村庄
 	 * @throws Exception
 	 */
 	public void SiteMainPage_UnBundSite() throws Exception{
-		om.ClickViewFromToCoordinates(om.idToView(CommonPageIdName.SiteMainPage_menu), 0.1f, 2.0f);						
+		//om.ClickViewFromToCoordinates(om.idToView(CommonPageIdName.SiteBackGroundImage),CommonPageIdName.SiteMainPage_menu,0.8f, 0.8f);		
+		om.ClickViewFromToCoordinates(om.idToView(CommonPageIdName.SiteMainPage_menu), CommonPageIdName.SiteMainPage_menu,0.1f, 2.0f);			
 	}
 
 	/**
@@ -261,11 +264,26 @@ public class CommonMethod extends Assert{
 	public void SearchSite_Name(String str) throws Exception{
 		SearchSite_enterSearchName(str);
 		solo.sleep(Config.less_timeout);
-		if(JudgeSearchResultIsNotNull()){
+		if(JudgeSearchResultIsNull()){
+						
+		}else {
 			SearchResultCompare(str);
 			solo.sleep(Config.less_timeout);
-			ClickOnJoin();			
+			ClickOnJoin();
 		}				
+	}
+	public void SearchVillage_Name(String str,String[] strings) throws Exception{
+		SearchVillage_enterSearchName(str,strings);
+		solo.sleep(Config.less_timeout);
+		if(JudgeSearchResultIsNull()){
+			op.LogPrintDebug("没有搜索到村庄");		
+		}else{
+			
+			SearchResultCompare(str);
+			solo.sleep(Config.less_timeout);
+			op.clickById(CommonPageIdName.BundVillage_ID);
+			ClickOnJoin();	
+		}
 	}
 	/**
 	 * 点击添加／查找组织，输入搜索词，点击立即搜索，得到搜索结果，判断搜索结果是否包含搜索词，
@@ -276,7 +294,7 @@ public class CommonMethod extends Assert{
 		ClickOnAddOrSearchSite();
 		SearchSite_enterSearchName(str);
 		solo.sleep(Config.less_timeout);
-		if(JudgeSearchResultIsNotNull()){
+		if(JudgeSearchResultIsNull()){
 			SearchResultCompare(str);
 			solo.sleep(Config.less_timeout);
 			ClickOnJoin();			
@@ -312,6 +330,16 @@ public class CommonMethod extends Assert{
 		solo.sleep(1000);
 		op.takeScreenshot();	
 	}
+	public void SearchVillage_enterSearchName(String str,String[] strings) throws Exception{
+		EditText editText=(EditText)solo.getView(strings[0]);
+		solo.enterText(editText, str);
+		op.takeScreenshot();
+		solo.sleep(1000);
+		op.clickById(strings[1]);
+		//assertTrue("失败",op.ReturnName(CommonPageIdName.SearchVillageResult_Title_ID).equals(strings[2]));
+		solo.sleep(1000);
+		op.takeScreenshot();	
+	}
 	/**
 	 * 通过高级搜索来查找搜索结果
 	 */
@@ -324,17 +352,15 @@ public class CommonMethod extends Assert{
 
 	}
 	/**
-	 * 判断搜索结果是否不为空
+	 * 判断搜索结果是否为空
 	 */
-	public boolean JudgeSearchResultIsNotNull() throws Exception{
-		if(op.checkViewExitsInScreen(CommonPageIdName.SearchIsNull_id)>0&&
-				op.ReturnName(CommonPageIdName.SearchIsNull_id).endsWith(CommonPageIdName.SearchIsNull_str)){
-			return false;
-			
-		}else{
-			return true;
-		}
+	public boolean JudgeSearchResultIsNull() throws Exception{
+		boolean SearchResult;
+		SearchResult=(op.checkViewExitsInScreen(CommonPageIdName.SearchIsNull_id)>0&&
+				(op.ReturnName(CommonPageIdName.SearchIsNull_id).endsWith(CommonPageIdName.SearchIsNull_str)));
+		return SearchResult;
 	}
+		
 	/**
 	 * 进入搜索结果页面，判断当前是否有搜索结果
 	 * 同时对比站点名称、描述、组织代码、是否已加入
@@ -398,11 +424,13 @@ public class CommonMethod extends Assert{
 				}
 				else{
 					op.takeScreenshot();
-					op.clickById("site_main_list_item_hasjoin_tv", i);
+					op.clickById("site_main_list_item_join_btn", i);
 					solo.sleep(Config.less_timeout);
 					ClickOnJoin();
 					break;
 				}
+			}else{
+				op.LogPrintDebug("没有搜索结果");
 			}
 		}
 	}

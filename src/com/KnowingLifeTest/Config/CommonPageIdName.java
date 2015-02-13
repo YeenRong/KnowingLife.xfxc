@@ -95,6 +95,21 @@ public class CommonPageIdName {
     public static final String CollectContact_str="收藏联系人";
     
     /*
+     * 村庄查找页面
+     * 
+     */
+    public static final String SearchVillageEdit_ID="et_site_finding_xfsearch";
+    public static final String SearchVillageRegion_ID="site_finding_area_xfll";
+    public static final String SearchVillageBtn_id="site_finding_search_xfbtn"; 
+    /*
+     *  村庄查找结果页面－－site_search_sitelist_title－－村庄查找
+     */
+    public static final String SearchVillageResult_Title_ID="site_search_sitelist_title";
+    public static final String SearchVillageResult_Title_str="村庄查找";
+    public static final String BundVillage_ID="site_main_list_item_join_btn";
+    public static final String BundVillage_str="绑定";
+
+    /*
      * 组织(站点)布局--
      * 头像、站点名称、站点描述、站点代码
      */
@@ -212,12 +227,18 @@ public class CommonPageIdName {
 	
     /*
      * 组织查找页面
+     * 
+     * 区域--index--2，行业--index--3
+     * site_finding_trade_l
      */
+	public static final String SearchSiteEdit="site_finding_expand_ll";
+	public static final String SearchSiteBtn_id="site_finding_search_btn";
+	public static final String SearchSiteBtn_str="立即搜索";
+		
     public static final String CheckSeniorSearch_id="site_finding_expand_ll";
     public static final String CheckSeniorSearch_str="查看高级搜索";
     public static final String RegionChoose="site_finding_area_ll";
-    //区域--index--2，行业--index--3
-    //site_finding_trade_ll
+
     public static final String Textview_5="温馨提示：";
     public static final String Textview_6="没有找到您想要的组织？可点击“查看高级搜索”按区域或行业来查找。";
     public static final String Textview_0="你还可以创建你自己的通讯录，";
@@ -226,8 +247,15 @@ public class CommonPageIdName {
     /*
      * 搜索结果页面
      */
+    public static final String SearchResultPage_Title="site_search_sitelist_title";
     public static final String SearchIsNull_id="tv_nodata_or_err";
     public static final String SearchIsNull_str="没有相应的搜索结果，请更换搜索条件再试试。";
+    public static final String SearchSiteTitle_str="组织搜索";
+    public static final String JoinSite_ID="site_main_list_item_join_btn";
+    public static final String JoinSite_str="加入";
+    public static final String HasJoinSite_ID="site_main_list_item_hasjoin_tv";
+    public static final String HasJoinSite_str="已加入";
+    
     /*
      * 加入组织验证页面
      */

@@ -46,12 +46,17 @@ public class BindVillage extends ActivityInstrumentationTestCase2 {
 	public void testBindVillage() throws Exception{
 		cm.clickonContacts();
 		op.waitForPageFlush(CommonPageIdName.LocalContact_str);
-		if(solo.searchText(CommonPageIdName.BindVillage_string, 2, false, true)){
+		cm.SearchVillageAndBind();
+		/*
+		  if(solo.searchText(CommonPageIdName.BindVillage_string, 2, false, true)){
+		 
+			op.LogPrintDebug("test");
 			cm.SearchVillageAndBind();			
 		}else{
 			cm.UnBundVillage();
 			cm.SearchVillageAndBind();
 		}
+		*/
 		
 		
 	}

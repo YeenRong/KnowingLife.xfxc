@@ -67,6 +67,32 @@ public class OpenMethod extends Assert{
 	 * @param Ypercent
 	 * @throws Exception
 	 */
+	public void ClickViewFromToCoordinates(View view,String id,float Xpercent, float Ypercent) throws Exception{
+		int[] xyLocation = new int[2];
+		// 存储view的xy坐标，左上角坐标值
+		view.getLocationOnScreen(xyLocation);
+		// 获取view的宽度
+		final int viewWidth = view.getWidth();
+		// 获取view的高度
+		final int viewHeight = view.getHeight();
+		
+		// 计算view的左上角的x坐标	
+		final float viewLeftTop_x=xyLocation[0];
+		// 计算view的左上角的y坐标
+	    final float viewLeftTop_y=xyLocation[1];
+	    float DropOut_X=viewLeftTop_x+viewWidth*Xpercent;
+	    float DropOut_Y=viewLeftTop_y+viewHeight*Ypercent;	
+	    op.clickById(id);
+	    solo.sleep(Config.less_timeout);
+	    op.LogPrintDebug("TOPx"+String.valueOf(viewLeftTop_x)+"TopY"+String.valueOf(viewLeftTop_y));
+	    op.LogPrintDebug("Width"+String.valueOf(viewWidth)+"Height"+String.valueOf(viewHeight));
+
+	    op.LogPrintDebug("DropOut_X"+String.valueOf(DropOut_X)+"DropOut_Y"+String.valueOf(DropOut_Y));
+	    solo.clickOnScreen(DropOut_X,DropOut_Y);	
+	}
+	/**
+	 * 用于不首先点击view，再计算坐标的方法
+	 */
 	public void ClickViewFromToCoordinates(View view,float Xpercent, float Ypercent) throws Exception{
 		int[] xyLocation = new int[2];
 		// 存储view的xy坐标，左上角坐标值
@@ -81,10 +107,61 @@ public class OpenMethod extends Assert{
 		// 计算view的左上角的y坐标
 	    final float viewLeftTop_y=xyLocation[1];
 	    float DropOut_X=viewLeftTop_x*Xpercent;
-	    float DropOut_Y=viewLeftTop_y+viewHeight*Ypercent;
-	    
+	    float DropOut_Y=viewLeftTop_y+viewHeight*Ypercent;	
 	    solo.clickOnScreen(DropOut_X,DropOut_Y);	
 	}
+	/**
+	 * 算出view的最上角坐标的xy值
+	 */
+	public int[] ViewTopPointCoordinates(View view) throws Exception{
+		int[] xyLocation = new int[2];
+		// 存储view的xy坐标，左上角坐标值
+		view.getLocationOnScreen(xyLocation);		
+	    return xyLocation;
+		
+	}
+	/**
+	 * 算出view的高和宽
+	 */
+	public float[] ViewHighAndWidth(View view) throws Exception{
+		final int viewWidth = view.getWidth();
+		// 获取view的高度
+		final int viewHeight = view.getHeight();
+		float[] WH=new float[2];
+		WH[0]=viewWidth;
+		WH[1]=viewHeight;
+	    return WH;
+	}
+	/**
+	 * 
+	 * @param view
+	 * @param Xpercent
+	 * @param Ypercent
+	 * @return
+	 * @throws Exception
+	 */
+	public float[] ViewFromToCoordinates(View view,float Xpercent, float Ypercent) throws Exception{
+		int[] xyLocation = new int[2];
+		// 存储view的xy坐标，左上角坐标值
+		view.getLocationOnScreen(xyLocation);
+		// 获取view的宽度
+		final int viewWidth = view.getWidth();
+		// 获取view的高度
+		final int viewHeight = view.getHeight();
+		
+		// 计算view的左上角的x坐标	
+		final float viewLeftTop_x=xyLocation[0];
+		// 计算view的左上角的y坐标
+	    final float viewLeftTop_y=xyLocation[1];
+	    float DropOut_X=viewLeftTop_x*Xpercent;
+	    float DropOut_Y=viewLeftTop_y+viewHeight*Ypercent;
+	    float[] XY=new float[2];
+	    XY[0]=DropOut_X;
+	    XY[1]=DropOut_Y;
+	    return XY;
+	    //solo.clickOnScreen(DropOut_X,DropOut_Y);	
+	}
+	
 	/**
 	 * 重写drag方法，
 	 * 可以从view的任意点滑倒任意点

@@ -30,18 +30,18 @@ public class LoginPage extends Assert{
 	 * 关闭引导界面，并将每个页面截屏
 	 */
 	public void ClosedDalog() throws Exception{
-		solo.sleep(6000);		
+		solo.sleep(Config.long_timeout);		
 		op.takeScreenshot("help_1");
-		solo.sleep(1000);
+		solo.sleep(Config.less_timeout);
 		op.RightScrollToLeft();
-		solo.sleep(2000);
+		solo.sleep(Config.less_timeout);
 		op.takeScreenshot("help_2");
 		op.RightScrollToLeft();
-		solo.sleep(2000);
+		solo.sleep(Config.less_timeout);
 		op.takeScreenshot("help_3");
 		assertTrue("没有找到开始体验按钮", op.checkViewExitsInScreen("btn_start_use")>0);
 		op.clickById("btn_start_use");
-		solo.sleep(2000);
+		solo.sleep(Config.less_timeout);
 	}
 	/**
 	 * 登陆页面，清除数据输入账号，密码，点击登陆

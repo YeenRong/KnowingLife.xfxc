@@ -146,6 +146,37 @@ public class MethodGroup extends Assert {
 			}
 		}
 	}
+	public void waitForPageFlush(String args,String id) {
+		solo.sleep(1000);
+		while (solo.searchText("正在获取数据...",2, false, true)) // 只检测页面上显示的字符，不检测隐藏的
+		{
+			solo.sleep(6000);
+			
+		}
+		if(solo.searchText(args, 1, false, true)) //检查页面上的字符，判定检查成功，否则再等待5s
+		{
+			//
+		}else{
+			solo.sleep(3000);
+		}
+		while(solo.searchText("无网络信息，请检查你的网络", 1, false, true))
+		{
+			try {
+				this.writeLog(TAG, "网络差");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			solo.clickOnScreen(500, 900);                       //这边尝试刷新页面重新加载，有待完善
+			solo.clickOnScreen(500, 1100);
+			solo.sleep(1000);
+			while (solo.searchText("正在获取数据", 1, false, true)) // 只检测页面上显示的字符，不检测隐藏的
+			{
+				solo.sleep(6000);
+				
+			}
+		}
+	}
 	/**
 	 * 等待页面中的
 	 */
