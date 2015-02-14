@@ -53,13 +53,6 @@ public class TongXingLuPage extends ActivityInstrumentationTestCase2 {
 
 	public void testUpdateSite() throws Exception{
 		
-		//if((op.checkViewExitsInScreen("site_title")!=-1)&&(op.TextViewToString("site_title").equals("通讯录"))){
-			ImageView imageView=(ImageView) solo.getView("site_main_local_iv_icon");
-			solo.clickOnView(imageView);
-			solo.sleep(5000);
-			
-		//}
-		solo.sleep(4000);
 	}
 	
 	

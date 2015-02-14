@@ -10,6 +10,7 @@ public class Config {
 	public static int timeout=10000;
 	public static int less_timeout=1000;
 	public static int long_timeout=3000;
+	public static int Loading_timeout=5000;
 	/*public static String ProgramMatch="项目撮合";
 	public static String PrivateLawer="私人律师";
 	public static String SupplyandNeedinfo="供求信息";
@@ -33,6 +34,7 @@ public class Config {
      */
     //public static String Discovery="发现";
     public static String xfxchome="幸福乡村";
+    public static String[] home_str={"幸福乡村","商会帮","智慧乡村"};
     public static String More="更多";
     public static String Dynamic="动态";
     public static String Chilean_media="智媒体";
@@ -62,7 +64,22 @@ public class Config {
     public static String getsuccessmessage="运行正常";
     public static String Logfilesavapath="/sdcard/KnowingLife/Log_";
     
-
+    /*
+     * 加载提示语
+     * 动态页面加载--初始化
+     */
+    /*
+     * 加载站点数据
+     * 
+     */
+    public static String[] loadingStrings={"释放立即刷新","下拉刷新","正在刷新","正在读取中....","组织刷新组织数据，请稍候","请稍后...","正在获取数据..."};
+    
+    public static String[] UnNormalNetwork={""};
+    /**
+     * 弹出的提示框内容判断
+     * {提示框标题，提示框内容，提示框-取消按钮，提示框--确定按钮）
+     */
+    public static String[] PopUpBox_Loading={};
     
     
     /**

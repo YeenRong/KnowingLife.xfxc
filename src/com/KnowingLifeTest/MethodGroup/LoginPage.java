@@ -201,6 +201,7 @@ public class LoginPage extends Assert{
 	/**
 	 * 检查当前页面是不是未登陆状态
 	 */
+	/*
 	public void CheckHavealook() throws Exception{
 		solo.sleep(Config.less_timeout);
 		if(solo.searchText(Config.xfxchome, 1, false, true)){
@@ -209,6 +210,21 @@ public class LoginPage extends Assert{
 		}else{
 			
 		}
+	}*/
+	public void CheckHavealook() throws Exception{
+		if(CheckPageIsHavealook()){
+			solo.sleep(Config.less_timeout);
+			CheckLoginOut();	
+		}else {
+			
+		}
+	}
+		
+	public boolean CheckPageIsHavealook() throws Exception{
+		solo.sleep(Config.less_timeout);
+		Boolean result;
+		result=op.ToastFindLike(Config.home_str);
+		return result;
 	}
 	/**
 	 * 

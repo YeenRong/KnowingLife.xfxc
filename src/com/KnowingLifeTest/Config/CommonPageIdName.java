@@ -19,6 +19,20 @@ public class CommonPageIdName {
 	public static final String TabText="tabText";
 	
 	/**
+	 * 输入progressBar的控件id
+	 * 
+	 *最上层的layout--parentPanel--android.widget.LinearLayout
+	 *  加载框的layout--body--android.widget.LinearLayout
+	 *    加载图标--progress--android.widget.ProgressBar
+	 *    加载显示的文字--message--正在刷新组织数据，请稍候...--android.widget.TextView
+	 *    
+	 */
+	public static final String ProgressBar_TopLayout="parentPanel";
+	public static final String ProgressBar_Layout="body";
+	public static final String ProgressBar_icon="progress";
+	public static final String ProgressBar_content_id="message";
+	
+	/**
 	 * 登陆页面
 	 * 忘记密码?---textview,登陆按钮--button,新用户注册--textview,输入框－－手机/用户名--edittext
 	 * 输入框－－密码---edittext,随便看看－－textview,图标－－logo

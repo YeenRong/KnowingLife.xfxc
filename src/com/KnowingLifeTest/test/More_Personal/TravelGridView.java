@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.KnowingLifeTest.Config.CommonPageIdName;
 import com.KnowingLifeTest.Config.Config;
 import com.KnowingLifeTest.MethodGroup.CommonMethod;
+import com.KnowingLifeTest.MethodGroup.GetName;
 import com.KnowingLifeTest.MethodGroup.MethodGroup;
 import com.robotium.solo.Solo;
 
@@ -23,6 +24,7 @@ public class TravelGridView extends ActivityInstrumentationTestCase2 {
 	private static Class launcherActivityClass;
 	MethodGroup op=null;
 	CommonMethod cm=null;
+	GetName gn=null;
 	static{
 		try {
 			launcherActivityClass = Class.
@@ -41,6 +43,7 @@ public class TravelGridView extends ActivityInstrumentationTestCase2 {
 		solo = new Solo(getInstrumentation(), getActivity());
 		op=new MethodGroup(solo);
 		cm=new CommonMethod(solo);
+		gn=new GetName(solo);
 	}	
 	
 	public void tearDown() throws Exception {
@@ -54,6 +57,7 @@ public class TravelGridView extends ActivityInstrumentationTestCase2 {
         for (int i = 0; i < gd.getCount(); i++) {
         	ImageView imageView=(ImageView) solo.getView(CommonPageIdName.JoinSiteCheck_ImageView, i);
 			solo.clickOnView(imageView);
+			gn.WaitForLoadingProgressAndSuccess(Config.loadingStrings, CommonPageIdName.ProgressBar_content_id);
 			solo.sleep(Config.less_timeout);
 			op.takeScreenshot();
 			solo.sleep(Config.less_timeout);

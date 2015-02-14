@@ -113,6 +113,7 @@ public class MethodGroup extends Assert {
 		}
 	}
 	/**
+	 * 
 	 *等待数据加载出来，找到对应的文本，然后再继续操作	 * 
 	 */
 	public void waitForPageFlush(String args) {
@@ -146,7 +147,7 @@ public class MethodGroup extends Assert {
 			}
 		}
 	}
-	public void waitForPageFlush(String args,String id) {
+	private void waitForPageFlush(String args,String id) {
 		solo.sleep(1000);
 		while (solo.searchText("正在获取数据...",2, false, true)) // 只检测页面上显示的字符，不检测隐藏的
 		{
@@ -177,6 +178,7 @@ public class MethodGroup extends Assert {
 			}
 		}
 	}
+	
 	/**
 	 * 等待页面中的
 	 */
@@ -361,7 +363,7 @@ public class MethodGroup extends Assert {
 			String tx = TX.getText().toString();
 			return tx;
 		    } catch (Exception e) {
-		    	Log.e(TAG, "Exception accur at ClickById");
+		    	Log.e(Config.Error_TAG, "Exception accur at ClickById");
 			    return null;
 			}
 		}
@@ -374,15 +376,15 @@ public class MethodGroup extends Assert {
 			if ((id1 = checkViewExitsInScreen(id)) > 0) {
 				View view = solo.getView(id1);// 得到View
 				solo.clickOnView(view);// 点击
-				Log.e(TAG, "ClickById " + id);
+				Log.e(Config.Error_TAG, "ClickById " + id);
 			} 
 			else
 			{
 				//writeLog(TAG, id + " is not exit.");
-				Log.e(TAG, "Exception accur at ClickById");
+				Log.e(Config.Error_TAG, "Exception accur at ClickById");
 			}
 		} catch (Exception e) {
-			Log.e(TAG, "Exception accur at ClickById");
+			Log.e(Config.Error_TAG, "Exception accur at ClickById");
 		}
 	}
     /**
